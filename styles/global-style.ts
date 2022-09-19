@@ -2,8 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 import { reset } from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
-
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto&family=Source+Sans+Pro:wght@300&display=swap');   
+  @font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 
   ${reset}
   * {
@@ -11,11 +15,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "GmarketSansMedium";
   }
 
   a {
     text-decoration: none;
+    color: inherit;
   }
   
   button {
