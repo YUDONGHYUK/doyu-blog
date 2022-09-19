@@ -1,4 +1,3 @@
-import React from 'react';
 import MainNavigation from './main-navigation';
 import styled from 'styled-components';
 

@@ -5,21 +5,23 @@ import styled from 'styled-components';
 const MainNavigation = () => {
   return (
     <Header>
-      <Link href="/">
-        <a>
-          <Logo />
-        </a>
-      </Link>
-      <Nav>
-        <NavLists>
-          <NavItem>
-            <Link href="/posts">Posts</Link>
-          </NavItem>
-          <NavItem>
-            <Link href="/about">About</Link>
-          </NavItem>
-        </NavLists>
-      </Nav>
+      <Container>
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
+        <Nav>
+          <List>
+            <ListItem>
+              <Link href="/posts">Posts</Link>
+            </ListItem>
+            <ListItem>
+              <Link href="/about">About</Link>
+            </ListItem>
+          </List>
+        </Nav>
+      </Container>
     </Header>
   );
 };
@@ -27,18 +29,30 @@ const MainNavigation = () => {
 export default MainNavigation;
 
 const Header = styled.header`
+  position: sticky;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #eaecee;
+  background-color: #ffffff90;
+  backdrop-filter: blur(7px);
+  z-index: 100;
+`;
+
+const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 5rem;
-  padding: 0 10%;
+  max-width: 48rem;
+  height: 4rem;
+  margin: auto;
+  padding: 0 1.5rem;
   color: #17202a;
 `;
 
 const Nav = styled.nav``;
 
-const NavLists = styled.ul`
+const List = styled.ul`
   display: flex;
   align-items: center;
   margin: 0;
@@ -46,11 +60,11 @@ const NavLists = styled.ul`
   list-style: none;
 `;
 
-const NavItem = styled.li`
+const ListItem = styled.li`
   margin: 0 1rem;
 
   a {
-    padding: 0.5rem 0;
+    padding: 0.1rem 0;
     color: #17202a;
     font-size: ${({ theme }) => theme.font.size4};
     transition: color 300ms ease;
@@ -58,6 +72,6 @@ const NavItem = styled.li`
 
   a:hover,
   a:active {
-    border-bottom: 2px solid #d5d8dc;
+    border-bottom: 2px solid #abb2b9;
   }
 `;
