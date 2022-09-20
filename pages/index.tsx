@@ -1,39 +1,23 @@
+import { GetStaticProps } from 'next';
+
 import LatestPosts from '../components/home-page/latest-posts';
+import { Post } from '../type';
+import { getLatestPosts } from '../lib/posts-util';
 
-const DUMMY_POSTS = [
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt:
-      'dummy-posts for testingdummy-posts for testingdummy-posts for testingdummy-posts for testingdummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts1',
-  },
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt: 'dummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts2',
-  },
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt: 'dummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts3',
-  },
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt: 'dummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts4',
-  },
-];
+type HomePageProps = {
+  posts: Post[];
+};
 
-const HomePage = () => {
-  return <LatestPosts posts={DUMMY_POSTS} />;
+const HomePage = ({ posts }: HomePageProps) => {
+  return <LatestPosts posts={posts} />;
 };
 
 export default HomePage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const latestPosts = getLatestPosts();
+
+  return {
+    props: { posts: latestPosts },
+  };
+};

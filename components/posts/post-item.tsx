@@ -8,7 +8,10 @@ type PostItemProps = {
 };
 
 const PostItem = ({ post }: PostItemProps) => {
-  const { title, image, excerpt, date, slug } = post;
+  const {
+    slug,
+    frontMatter: { title, image, excerpt, date },
+  } = post;
 
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',

@@ -1,39 +1,23 @@
+import { GetStaticProps } from 'next';
+
 import AllPosts from '../../components/posts/all-posts';
+import { Post } from '../../type/index';
+import { getAllPosts } from '../../lib/posts-util';
 
-const DUMMY_POSTS = [
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt:
-      'dummy-posts for testingdummy-posts for testingdummy-posts for testingdummy-posts for testingdummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts1',
-  },
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt: 'dummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts2',
-  },
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt: 'dummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts3',
-  },
-  {
-    title: 'Dummy posts',
-    image: 'dummy-posts.png',
-    excerpt: 'dummy-posts for testing',
-    date: '2022-09-19',
-    slug: 'dummy-posts4',
-  },
-];
+type AllPostsPageProps = {
+  posts: Post[];
+};
 
-const AllPostsPage = () => {
-  return <AllPosts posts={DUMMY_POSTS} />;
+const AllPostsPage = ({ posts }: AllPostsPageProps) => {
+  return <AllPosts posts={posts} />;
 };
 
 export default AllPostsPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPosts = getAllPosts();
+
+  return {
+    props: { posts: allPosts },
+  };
+};
