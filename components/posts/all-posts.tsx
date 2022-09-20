@@ -2,11 +2,11 @@ import PostGrid from './posts-grid';
 import { Post } from '../../type';
 import styled from 'styled-components';
 
-type AllPostsType = {
+type AllPostsProps = {
   posts: Post[];
 };
 
-const AllPosts = ({ posts }: AllPostsType) => {
+const AllPosts = ({ posts }: AllPostsProps) => {
   return (
     <Container>
       <Title>All Posts</Title>
