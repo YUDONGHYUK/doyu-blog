@@ -48,6 +48,11 @@ const Container = styled.div`
   margin: auto;
   padding: 0 1.5rem;
   color: #17202a;
+
+  a {
+    color: #17202a;
+    font-size: ${({ theme }) => theme.font.size5};
+  }
 `;
 
 const Nav = styled.nav``;

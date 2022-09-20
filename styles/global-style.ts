@@ -9,18 +9,26 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  ${reset}
+  /* ${reset} */
   * {
     box-sizing: border-box;
   }
 
   body {
+    margin: 0;
+    color: #252525;
     font-family: "GmarketSansMedium";
   }
 
+  h1,
+  h2,
+  h3 {
+    font-family: sans-serif;
+  }
+
+
   a {
     text-decoration: none;
-    color: inherit;
   }
   
   button {
