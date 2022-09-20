@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { reset } from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -9,7 +8,6 @@ export const GlobalStyle = createGlobalStyle`
     font-style: normal;
   }
 
-  /* ${reset} */
   * {
     box-sizing: border-box;
   }

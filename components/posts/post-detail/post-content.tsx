@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import PostHeader from './post-header';
+import { Post } from '../../../type';
 import styled from 'styled-components';
 
 const DUMMY_POST = {
@@ -10,12 +11,16 @@ const DUMMY_POST = {
   content: '# This is a first post',
 };
 
-const PostContent = () => {
-  const imagePath = `/images/posts/${DUMMY_POST.slug}/${DUMMY_POST.image}`;
+type PostContentProps = {
+  post: Post;
+};
+
+const PostContent = ({ post }: PostContentProps) => {
+  const imagePath = `/images/posts/${post.slug}/${post.frontMatter.image}`;
   return (
     <Article>
-      <PostHeader title={DUMMY_POST.title} image={imagePath} />
-      <ReactMarkdown>{DUMMY_POST.content}</ReactMarkdown>
+      <PostHeader title={post.frontMatter.title} image={imagePath} />
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </Article>
   );
 };
