@@ -57,6 +57,10 @@ const Item = styled.li`
   :hover {
     transform: scale(1.02);
   }
+
+  a {
+    color: inherit;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -70,7 +74,7 @@ const ImageWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  padding: 1rem;
+  padding: 1rem 0.5rem;
 `;
 
 const Title = styled.h3`

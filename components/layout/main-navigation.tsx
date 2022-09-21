@@ -46,7 +46,7 @@ const Container = styled.div`
   max-width: 48rem;
   height: 4rem;
   margin: auto;
-  padding: 0 1.5rem;
+  /* padding: 0 1.5rem; */
   color: #17202a;
 
   a {
