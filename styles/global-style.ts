@@ -1,32 +1,61 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'GmarketSansMedium';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
   * {
     box-sizing: border-box;
   }
 
+
   body {
     margin: 0;
+    font-size: 1.125rem;
     color: #252525;
-    font-family: "GmarketSansMedium";
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  code {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   h1,
   h2,
-  h3 {
-    font-family: sans-serif;
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
   }
 
 
   a {
     text-decoration: none;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    margin-top: 0.5rem;
+
+    li {
+      margin-left: 1.2rem;
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  } 
+
+  p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.8rem;
   }
   
   button {
