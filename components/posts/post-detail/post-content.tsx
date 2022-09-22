@@ -94,7 +94,10 @@ const PostContent = ({ post }: PostContentProps) => {
   return (
     <Article>
       <PostHeader title={post.frontMatter.title} image={imagePath} />
-      <ReactMarkdown components={MarkdownComponents}>
+      <ReactMarkdown
+        components={MarkdownComponents}
+        css={{ code: { fontSize: '1rem' } }}
+      >
         {post.content}
       </ReactMarkdown>
     </Article>
