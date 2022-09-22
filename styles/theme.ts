@@ -7,6 +7,7 @@ const defaultTheme = {
     size5: '1.25rem',
     size6: '1.5rem',
     size8: '2rem',
+    size10: '2.5rem',
     size12: '3rem',
     size16: '4rem',
     size20: '5rem',

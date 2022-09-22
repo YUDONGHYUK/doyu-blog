@@ -19,11 +19,9 @@ const PostGrid = ({ posts }: PostGridProps) => {
 export default PostGrid;
 
 const List = styled.ul`
-  margin: 0;
-  padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 2rem 1rem;
   align-content: center;
   list-style: none;
 `;

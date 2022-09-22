@@ -17,14 +17,10 @@ const AllPosts = ({ posts }: AllPostsProps) => {
 
 export default AllPosts;
 
-const Container = styled.section`
-  max-width: 48rem;
-  margin: auto;
-  padding: 0 1.5rem;
-`;
+const Container = styled.section``;
 
 const Title = styled.h2`
-  padding: 2rem 0;
-  font-size: ${({ theme }) => theme.font.size12};
+  padding: 1rem 0;
+  font-size: ${({ theme }) => theme.font.size10};
   text-align: center;
 `;

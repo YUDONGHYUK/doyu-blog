@@ -1,6 +1,7 @@
 import PostGrid from '../posts/posts-grid';
 import { Post } from '../../type';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 type LatestPostsProps = {
   posts: Post[];
@@ -9,7 +10,10 @@ type LatestPostsProps = {
 const LatestPosts = ({ posts }: LatestPostsProps) => {
   return (
     <Container>
-      <Title>Latest Posts</Title>
+      <Wrapper>
+        <Title>Latest Posts</Title>
+        <Link href="/posts">All posts</Link>
+      </Wrapper>
       <PostGrid posts={posts} />
     </Container>
   );
@@ -17,14 +21,18 @@ const LatestPosts = ({ posts }: LatestPostsProps) => {
 
 export default LatestPosts;
 
-const Container = styled.section`
-  max-width: 48rem;
-  margin: auto;
-  padding: 0 1.5rem;
+const Container = styled.section``;
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a {
+    color: #2e86c1;
+  }
 `;
 
 const Title = styled.h2`
-  padding: 2rem 0;
-  font-size: ${({ theme }) => theme.font.size12};
-  text-align: center;
+  font-size: ${({ theme }) => theme.font.size8};
 `;

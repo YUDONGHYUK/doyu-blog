@@ -16,4 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
 
 export default Layout;
 
-const Main = styled.main``;
+const Main = styled.main`
+  max-width: 48rem;
+  margin: auto;
+`;

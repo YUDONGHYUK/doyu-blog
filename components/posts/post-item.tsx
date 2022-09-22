@@ -49,6 +49,9 @@ const PostItem = ({ post }: PostItemProps) => {
 export default PostItem;
 
 const Item = styled.li`
+  margin: 0;
+  border-radius: 0.5rem;
+  padding: 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   background-color: white;
   text-align: center;
@@ -67,6 +70,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   max-height: 20rem;
   overflow: hidden;
+  border-radius: 0.5rem 0.5rem 0 0;
 
   img {
     object-fit: cover;
@@ -74,12 +78,15 @@ const ImageWrapper = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  padding: 1rem 0.5rem;
+  padding: 1rem;
 `;
 
 const Title = styled.h3`
   margin: 0.5rem 0;
   font-size: ${({ theme }) => theme.font.size6};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Time = styled.time`
@@ -89,6 +96,10 @@ const Time = styled.time`
 `;
 
 const Paragraph = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   margin-top: 1rem;
   line-height: 1.5rem;
 `;
