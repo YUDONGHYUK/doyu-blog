@@ -15,7 +15,8 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.3",
     "react-syntax-highlighter": "^15.5.0",
-    "styled-reset": "^4.4.2"
+    "styled-reset": "^4.4.2",
+    "typeit-react": "^2.6.0"
   },
   "devDependencies": {
     "@types/node": "18.7.18",

@@ -30,6 +30,10 @@ const Wrapper = styled.div`
 
   a {
     color: #2e86c1;
+
+    :hover {
+      color: #5dade2;
+    }
   }
 `;
 

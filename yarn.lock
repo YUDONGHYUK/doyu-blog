@@ -360,7 +360,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@>=16", "@types/react@18.0.20":
+"@types/react@*", "@types/react@^18.0.12", "@types/react@>=16", "@types/react@18.0.20":
   "integrity" "sha512-MWul1teSPxujEHVwZl4a5HxQ9vVNsjTchVA+xRqv/VYGCuKGAU6UhfrTdF5aBefwD1BHUD8i/zq+O/vyCm/FrA=="
   "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.20.tgz"
   "version" "18.0.20"
@@ -892,6 +892,38 @@
     "is-date-object" "^1.0.1"
     "is-symbol" "^1.0.2"
 
+"esbuild-darwin-arm64@0.14.54":
+  "integrity" "sha512-OPafJHD2oUPyvJMrsCvDGkRrVCar5aVyHfWGQzY1dWnzErjrDuSETxwA2HSsyg2jORLY8yBfzc1MIpUkXlctmw=="
+  "resolved" "https://registry.npmjs.org/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.14.54.tgz"
+  "version" "0.14.54"
+
+"esbuild@^0.14.27":
+  "integrity" "sha512-Cy9llcy8DvET5uznocPyqL3BFRrFXSVqbgpMJ9Wz8oVjZlh/zUSNbPRbov0VX7VxN2JH1Oa0uNxZ7eLRb62pJA=="
+  "resolved" "https://registry.npmjs.org/esbuild/-/esbuild-0.14.54.tgz"
+  "version" "0.14.54"
+  optionalDependencies:
+    "@esbuild/linux-loong64" "0.14.54"
+    "esbuild-android-64" "0.14.54"
+    "esbuild-android-arm64" "0.14.54"
+    "esbuild-darwin-64" "0.14.54"
+    "esbuild-darwin-arm64" "0.14.54"
+    "esbuild-freebsd-64" "0.14.54"
+    "esbuild-freebsd-arm64" "0.14.54"
+    "esbuild-linux-32" "0.14.54"
+    "esbuild-linux-64" "0.14.54"
+    "esbuild-linux-arm" "0.14.54"
+    "esbuild-linux-arm64" "0.14.54"
+    "esbuild-linux-mips64le" "0.14.54"
+    "esbuild-linux-ppc64le" "0.14.54"
+    "esbuild-linux-riscv64" "0.14.54"
+    "esbuild-linux-s390x" "0.14.54"
+    "esbuild-netbsd-64" "0.14.54"
+    "esbuild-openbsd-64" "0.14.54"
+    "esbuild-sunos-64" "0.14.54"
+    "esbuild-windows-32" "0.14.54"
+    "esbuild-windows-64" "0.14.54"
+    "esbuild-windows-arm64" "0.14.54"
+
 "escape-string-regexp@^1.0.5":
   "integrity" "sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg=="
   "resolved" "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz"
@@ -1253,6 +1285,11 @@
   "integrity" "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="
   "resolved" "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
   "version" "1.0.0"
+
+"fsevents@~2.3.2":
+  "integrity" "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+  "resolved" "https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz"
+  "version" "2.3.2"
 
 "function-bind@^1.1.1":
   "integrity" "sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A=="
@@ -2292,7 +2329,7 @@
   "resolved" "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   "version" "4.2.0"
 
-"postcss@8.4.14":
+"postcss@^8.4.13", "postcss@8.4.14":
   "integrity" "sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.14.tgz"
   "version" "8.4.14"
@@ -2359,7 +2396,7 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   "version" "1.2.3"
 
-"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@>= 16.8.0", "react-dom@18.2.0":
+"react-dom@^17.0.2 || ^18.0.0-0", "react-dom@^18.1.0", "react-dom@>= 16.8.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -2409,7 +2446,7 @@
     "prismjs" "^1.27.0"
     "refractor" "^3.6.0"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@18.2.0":
+"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18.0.0-0", "react@^18.1.0", "react@^18.2.0", "react@>= 0.14.0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -2497,6 +2534,13 @@
   "version" "3.0.2"
   dependencies:
     "glob" "^7.1.3"
+
+"rollup@>=2.59.0 <2.78.0":
+  "integrity" "sha512-/qxNTG7FbmefJWoeeYJFbHehJ2HNWnjkAFRKzWN/45eNBBF/r8lo992CwcJXEzyVxs5FmfId+vTSTQDb+bxA+g=="
+  "resolved" "https://registry.npmjs.org/rollup/-/rollup-2.77.3.tgz"
+  "version" "2.77.3"
+  optionalDependencies:
+    "fsevents" "~2.3.2"
 
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="
@@ -2795,6 +2839,22 @@
   "resolved" "https://registry.npmjs.org/type-fest/-/type-fest-0.20.2.tgz"
   "version" "0.20.2"
 
+"typeit-react@^2.6.0":
+  "integrity" "sha512-TkITlgETR0QKvq+OuUBZuPNs+tr+q0TDum2AiV5SyiVUIzj1qh8M+msRmlbTq5fCp84CcxSo+qkwY9Dg2dWrWQ=="
+  "resolved" "https://registry.npmjs.org/typeit-react/-/typeit-react-2.6.0.tgz"
+  "version" "2.6.0"
+  dependencies:
+    "@types/react" "^18.0.12"
+    "react" "^18.1.0"
+    "react-dom" "^18.1.0"
+    "typeit" "^8.7.0"
+    "vite" "^2.9.12"
+
+"typeit@^8.7.0":
+  "integrity" "sha512-MeraWJAquZr0EPo2yRYQnSdAxIuzgS5s4JEvzOdp63ZRRpETxtiHYvCJiK4aJA6FuScz3oUJkjmjQsLrx6VOMA=="
+  "resolved" "https://registry.npmjs.org/typeit/-/typeit-8.7.0.tgz"
+  "version" "8.7.0"
+
 "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@>=3.3.1", "typescript@4.8.3":
   "integrity" "sha512-goMHfm00nWPa8UvR/CPSvykqf6dVV8x/dp0c5mFTMTIu0u0FlGWRioyy7Nn0PGAdHxpJZnuO/ut+PpQ8UiHAig=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.8.3.tgz"
@@ -2910,6 +2970,18 @@
     "is-buffer" "^2.0.0"
     "unist-util-stringify-position" "^3.0.0"
     "vfile-message" "^3.0.0"
+
+"vite@^2.9.12":
+  "integrity" "sha512-fzMt2jK4vQ3yK56te3Kqpkaeq9DkcZfBbzHwYpobasvgYmP2SoAr6Aic05CsB4CzCZbsDv4sujX3pkEGhLabVQ=="
+  "resolved" "https://registry.npmjs.org/vite/-/vite-2.9.15.tgz"
+  "version" "2.9.15"
+  dependencies:
+    "esbuild" "^0.14.27"
+    "postcss" "^8.4.13"
+    "resolve" "^1.22.0"
+    "rollup" ">=2.59.0 <2.78.0"
+  optionalDependencies:
+    "fsevents" "~2.3.2"
 
 "which-boxed-primitive@^1.0.2":
   "integrity" "sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg=="
