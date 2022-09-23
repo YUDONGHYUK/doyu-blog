@@ -3,6 +3,30 @@ import TypeIt from 'typeit-react';
 import styled from 'styled-components';
 import MyInfo from './myInfo';
 
+type InfoData = {
+  kind: 'phone' | 'email' | 'github' | 'notion';
+  text: string;
+  isLink: boolean;
+  address?: string;
+}[];
+
+const INFO_DATA: InfoData = [
+  { kind: 'phone', text: '010-7134-2844', isLink: false },
+  { kind: 'email', text: 'ydh0905@nate.com', isLink: false },
+  {
+    kind: 'github',
+    text: 'YUDONGHYUK',
+    isLink: true,
+    address: 'https://github.com/YUDONGHYUK',
+  },
+  {
+    kind: 'notion',
+    text: 'Notion',
+    isLink: true,
+    address: 'https://www.notion.so/Doyu-01b5304c18ec49969140fe4021c768f1',
+  },
+];
+
 const Profile = () => {
   return (
     <Container>
@@ -32,14 +56,15 @@ const Profile = () => {
         </Avatar>
       </ProfileWrapper>
       <ContactWrapper>
-        <MyInfo fileName="phone" text="010-7134-2844" />
-        <MyInfo fileName="email" text="ydh0905@nate.com" />
-        <MyInfo
-          fileName="github"
-          text="YUDONGHYUK"
-          isLink={true}
-          address="https://github.com/YUDONGHYUK"
-        />
+        {INFO_DATA.map((info) => (
+          <MyInfo
+            key={info.kind}
+            kind={info.kind}
+            text={info.text}
+            isLink={info.isLink}
+            address={info.address}
+          />
+        ))}
       </ContactWrapper>
     </Container>
   );

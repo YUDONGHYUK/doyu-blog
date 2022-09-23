@@ -1,31 +1,26 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import styled, { css } from 'styled-components';
+import Icon from '../icons/icon';
 
 type MyInfoProps = {
-  fileName: string;
+  kind: 'phone' | 'email' | 'github' | 'notion';
   text: string;
   isLink?: boolean;
   address?: string;
 };
 
-const MyInfo = ({ fileName, text, isLink, address }: MyInfoProps) => {
-  const imagePath = `/images/about/icon/${fileName}.svg`;
-
+const MyInfo = ({ kind, text, isLink, address }: MyInfoProps) => {
   if (isLink && address) {
     return (
-      <Link href={address}>
-        <Info isLink={isLink}>
-          <Image src={imagePath} alt={fileName} width={24} height={24} />
-          <Text>{text}</Text>
-        </Info>
-      </Link>
+      <Info isLink={isLink}>
+        <Icon kind={kind} href={address} size={24} />
+        <Text>{text}</Text>
+      </Info>
     );
   }
 
   return (
     <Info>
-      <Image src={imagePath} alt={fileName} width={24} height={24} />
+      <Icon kind={kind} href={address} size={24} />
       <Text>{text}</Text>
     </Info>
   );
