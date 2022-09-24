@@ -1,32 +1,9 @@
 import Link from 'next/link';
 import Logo from './logo';
+import ScrollIndicator from './scroll-indicator';
 import styled from 'styled-components';
-import { useState, useEffect } from 'react';
 
 const MainNavigation = () => {
-  const [progressWidth, setProgressWidth] = useState(0);
-
-  const handleScroll = () => {
-    if (window.scrollY === 0) {
-      setProgressWidth(0);
-    }
-
-    const percent: number =
-      (Math.floor(window.scrollY) /
-        (document.body.scrollHeight - window.innerHeight)) *
-      100;
-
-    setProgressWidth(percent);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.addEventListener('scroll', handleScroll);
-    };
-  });
-
   return (
     <Header>
       <Container>
@@ -46,9 +23,7 @@ const MainNavigation = () => {
           </List>
         </Nav>
       </Container>
-      <ScrollIndicator>
-        <ScrollBar percent={progressWidth} />
-      </ScrollIndicator>
+      <ScrollIndicator />
     </Header>
   );
 };
@@ -106,12 +81,4 @@ const ListItem = styled.li`
   a:active {
     border-bottom: 2px solid #abb2b9;
   }
-`;
-
-const ScrollIndicator = styled.div``;
-
-const ScrollBar = styled.div<{ percent: number }>`
-  width: ${({ percent }) => percent}%;
-  height: 0.2rem;
-  background-color: #5dade2;
 `;
