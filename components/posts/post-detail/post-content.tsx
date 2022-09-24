@@ -108,7 +108,6 @@ export default PostContent;
 
 const Article = styled.article`
   width: 100%;
-  max-width: 48rem;
   margin: 0 auto;
   padding: 1.5rem 0;
 `;
