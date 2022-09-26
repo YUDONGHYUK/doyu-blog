@@ -1,34 +1,32 @@
 import { useState, useEffect } from 'react';
-
-export type Theme = 'light' | 'dark';
+import { ThemeType, lightTheme, darkTheme } from '../styles/theme';
 
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState<Theme | null>(null);
+  const [theme, setTheme] = useState<ThemeType>(lightTheme);
 
-  const setMode = (mode: Theme) => {
+  const setMode = (mode: ThemeType) => {
     setTheme(mode);
   };
 
   const toggleTheme = () => {
-    if (theme === 'light') {
+    if (theme === lightTheme) {
       window.localStorage.setItem('theme', 'dark');
-      setMode('dark');
+      setMode(darkTheme);
     } else {
       window.localStorage.setItem('theme', 'light');
-      setMode('light');
+      setMode(lightTheme);
     }
   };
-
   useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
 
     window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)').matches &&
     !localTheme
-      ? setMode('dark')
+      ? setMode(darkTheme)
       : localTheme === 'dark'
-      ? setMode('dark')
-      : setMode('light');
+      ? setMode(darkTheme)
+      : setMode(lightTheme);
   });
 
   return { theme, toggleTheme };
