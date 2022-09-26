@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next';
 
 import AllPosts from '../../components/posts/AllPosts';
 import { Post } from '../../type/index';
-import { getAllPosts } from '../../lib/posts-util';
+import { getAllPosts } from '../../lib/postsUtil';
 
 type AllPostsPageProps = {
   posts: Post[];

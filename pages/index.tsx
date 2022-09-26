@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import LatestPosts from '../components/home-page/LatestPosts';
 import Hero from '../components/home-page/Hero';
 import { Post } from '../type';
-import { getLatestPosts } from '../lib/posts-util';
+import { getLatestPosts } from '../lib/postsUtil';
 
 type HomePageProps = {
   posts: Post[];

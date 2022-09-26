@@ -3,7 +3,7 @@ import { ParsedUrlQuery } from 'querystring';
 
 import PostContent from '../../components/posts/post-detail/PostContent';
 import { Post } from '../../type/index';
-import { getPostData, getPostFiles } from '../../lib/posts-util';
+import { getPostData, getPostFiles } from '../../lib/postsUtil';
 
 type PostDetailPageProps = {
   post: Post;
