@@ -1,6 +1,6 @@
-import MainNavigation from './main-navigation';
+import MainNavigation from './MainNavigation';
+import Footer from './Footer';
 import styled from 'styled-components';
-import Footer from './footer';
 
 type LayoutProps = {
   children: React.ReactNode;

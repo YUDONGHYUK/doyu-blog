@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import Icon from '../icons/icon';
+import styled, { css } from 'styled-components';
 
 type MyInfoProps = {
   kind: 'phone' | 'email' | 'github' | 'notion';

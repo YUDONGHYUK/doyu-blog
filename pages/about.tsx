@@ -1,5 +1,5 @@
-import Profile from '../components/about-page/profile';
-import Skills from '../components/about-page/skills';
+import Profile from '../components/about-page/Profile';
+import Skills from '../components/about-page/Skills';
 import styled from 'styled-components';
 
 const AboutPage = () => {

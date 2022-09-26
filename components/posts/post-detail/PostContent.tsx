@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 
-import PostHeader from './post-header';
+import PostHeader from './PostHeader';
 import { Post } from '../../../type';
 import styled from 'styled-components';
 

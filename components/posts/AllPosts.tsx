@@ -1,4 +1,4 @@
-import PostGrid from './posts-grid';
+import PostsGrid from './PostsGrid';
 import { Post } from '../../type';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const AllPosts = ({ posts }: AllPostsProps) => {
   return (
     <Container>
       <Title>All Posts</Title>
-      <PostGrid posts={posts} />
+      <PostsGrid posts={posts} />
     </Container>
   );
 };

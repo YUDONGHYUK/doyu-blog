@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import TypeIt from 'typeit-react';
 import styled from 'styled-components';
-import MyInfo from './myInfo';
+import MyInfo from './MyInfo';
 
 type InfoData = {
   kind: 'phone' | 'email' | 'github' | 'notion';

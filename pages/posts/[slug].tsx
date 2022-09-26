@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
-import PostContent from '../../components/posts/post-detail/post-content';
+import PostContent from '../../components/posts/post-detail/PostContent';
 import { Post } from '../../type/index';
 import { getPostData, getPostFiles } from '../../lib/posts-util';
 

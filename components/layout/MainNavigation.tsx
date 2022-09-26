@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import Logo from './logo';
-import ScrollIndicator from './scroll-indicator';
+import Logo from './Logo';
+import ScrollIndicator from './ScrollIndicater';
 import styled from 'styled-components';
 
 const MainNavigation = () => {

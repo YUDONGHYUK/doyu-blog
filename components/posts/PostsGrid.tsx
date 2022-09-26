@@ -1,4 +1,4 @@
-import PostItem from './post-item';
+import PostItem from './PostItem';
 import { Post } from '../../type';
 import styled from 'styled-components';
 
@@ -6,7 +6,7 @@ type PostGridProps = {
   posts: Post[];
 };
 
-const PostGrid = ({ posts }: PostGridProps) => {
+const PostsGrid = ({ posts }: PostGridProps) => {
   return (
     <List>
       {posts.map((post) => (
@@ -16,7 +16,7 @@ const PostGrid = ({ posts }: PostGridProps) => {
   );
 };
 
-export default PostGrid;
+export default PostsGrid;
 
 const List = styled.ul`
   display: grid;

@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 
-import AllPosts from '../../components/posts/all-posts';
+import AllPosts from '../../components/posts/AllPosts';
 import { Post } from '../../type/index';
 import { getAllPosts } from '../../lib/posts-util';
 
