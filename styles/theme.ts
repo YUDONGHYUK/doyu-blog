@@ -19,6 +19,7 @@ const defaultTheme = {
 
 export const lightTheme = {
   ...defaultTheme,
+  borderColor: '#566573',
   bgColor: {
     primary: '#f8f7f4',
     secondary: '#ffffff',
@@ -36,6 +37,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   ...defaultTheme,
+  borderColor: '#9ca3af',
   bgColor: {
     primary: '#1e1e1e',
     secondary: '#232323',

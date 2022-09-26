@@ -55,7 +55,7 @@ const Item = styled.li`
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   background-color: ${({ theme }) => theme.bgColor.secondary};
   text-align: center;
-  transition: all 250ms ease-in;
+  transition: transform 250ms ease-in;
 
   :hover {
     transform: scale(1.02);

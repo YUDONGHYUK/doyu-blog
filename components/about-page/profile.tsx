@@ -11,7 +11,7 @@ type InfoData = {
 }[];
 
 const INFO_DATA: InfoData = [
-  { kind: 'phone', text: '010-7134-2844', isLink: false },
+  // { kind: 'phone', text: '010-7134-2844', isLink: false },
   { kind: 'email', text: 'ydh0905@nate.com', isLink: false },
   {
     kind: 'github',
@@ -83,7 +83,7 @@ const Profile = () => {
 export default Profile;
 
 const Container = styled.section`
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({ theme }) => theme.borderColor};
   padding-bottom: 2rem;
 `;
 
@@ -123,6 +123,6 @@ const Avatar = styled.div`
 
 const ContactWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 `;
