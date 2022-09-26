@@ -26,7 +26,6 @@ const Container = styled.footer`
   align-items: center;
   width: 100%;
   height: 6rem;
-  color: #566573;
 `;
 
 const IconWrapper = styled.div`
@@ -36,12 +35,14 @@ const IconWrapper = styled.div`
   margin-bottom: 0.5rem;
 
   svg {
-    fill: #566573;
+    fill: ${({ theme }) => theme.text.secondary};
 
     :hover {
-      fill: #2e86c1;
+      fill: ${({ theme }) => theme.blue.primary};
     }
   }
 `;
 
-const Right = styled.span``;
+const Right = styled.span`
+  color: ${({ theme }) => theme.text.secondary};
+`;

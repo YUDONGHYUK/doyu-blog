@@ -1,11 +1,17 @@
+import { useContext } from 'react';
+import { ThemeContext } from '../../pages/_app';
 import Link from 'next/link';
 import Logo from './Logo';
+import Icon from '../icons/icon';
 import ScrollIndicator from './ScrollIndicater';
 import styled from 'styled-components';
+import { lightTheme, ThemeType } from '../../styles/theme';
 
 const MainNavigation = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <Header>
+    <Header activeTheme={theme}>
       <Container>
         <Link href="/">
           <a>
@@ -20,6 +26,11 @@ const MainNavigation = () => {
             <ListItem>
               <Link href="/about">About</Link>
             </ListItem>
+            <ListItem>
+              <DarkModeBtn onClick={() => toggleTheme()}>
+                <Icon kind={theme === lightTheme ? 'sun' : 'moon'} size={22} />
+              </DarkModeBtn>
+            </ListItem>
           </List>
         </Nav>
       </Container>
@@ -30,12 +41,12 @@ const MainNavigation = () => {
 
 export default MainNavigation;
 
-const Header = styled.header`
+const Header = styled.header<{ activeTheme: ThemeType }>`
   position: sticky;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid #eaecee;
-  background-color: #ffffff90;
+  color: ${({ theme }) => theme.text.primary};
+  background-color: ${({ theme }) => theme.bgColor.primary};
   backdrop-filter: blur(7px);
   z-index: 100;
 `;
@@ -49,10 +60,8 @@ const Container = styled.div`
   height: 4rem;
   margin: auto;
   padding: 0 1.5rem;
-  color: #17202a;
 
   a {
-    color: #17202a;
     font-size: ${({ theme }) => theme.font.size5};
   }
 `;
@@ -72,7 +81,6 @@ const ListItem = styled.li`
 
   a {
     padding: 0.1rem 0;
-    color: #17202a;
     font-size: ${({ theme }) => theme.font.size4};
     transition: color 300ms ease;
   }
@@ -80,5 +88,18 @@ const ListItem = styled.li`
   a:hover,
   a:active {
     border-bottom: 2px solid #abb2b9;
+  }
+`;
+
+const DarkModeBtn = styled.button`
+  display: flex;
+  align-items: center;
+
+  svg {
+    fill: ${({ theme }) => theme.text.primary};
+
+    :hover {
+      fill: #f39c12;
+    }
   }
 `;

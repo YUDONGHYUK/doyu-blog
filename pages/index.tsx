@@ -13,7 +13,7 @@ const HomePage = ({ posts }: HomePageProps) => {
   return (
     <>
       <Hero />
-      <LatestPosts posts={posts} />;
+      <LatestPosts posts={posts} />
     </>
   );
 };

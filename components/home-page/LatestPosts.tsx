@@ -29,10 +29,10 @@ const Wrapper = styled.div`
   align-items: center;
 
   a {
-    color: #2e86c1;
+    color: ${({ theme }) => theme.blue.primary};
 
     :hover {
-      color: #5dade2;
+      color: ${({ theme }) => theme.blue.secondary};
     }
   }
 `;

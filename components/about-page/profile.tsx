@@ -114,7 +114,7 @@ const Blurb = styled.div`
 `;
 
 const Description = styled.p`
-  color: #566573;
+  color: ${({ theme }) => theme.text.secondary};
 `;
 
 const Avatar = styled.div`
@@ -123,6 +123,6 @@ const Avatar = styled.div`
 
 const ContactWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 `;

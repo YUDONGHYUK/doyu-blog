@@ -53,7 +53,7 @@ const Item = styled.li`
   border-radius: 0.5rem;
   padding: 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  background-color: white;
+  background-color: ${({ theme }) => theme.bgColor.secondary};
   text-align: center;
   transition: all 250ms ease-in;
 
@@ -92,7 +92,7 @@ const Title = styled.h3`
 const Time = styled.time`
   font-size: ${({ theme }) => theme.font.size4};
   font-style: italic;
-  color: #808b96;
+  color: ${({ theme }) => theme.text.tertiary};
 `;
 
 const Paragraph = styled.p`
@@ -102,4 +102,5 @@ const Paragraph = styled.p`
   overflow: hidden;
   margin-top: 1rem;
   line-height: 1.5rem;
+  color: ${({ theme }) => theme.text.secondary};
 `;

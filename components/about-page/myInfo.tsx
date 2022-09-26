@@ -33,15 +33,24 @@ const Info = styled.li<{ isLink?: boolean }>`
   align-items: center;
   margin: 0;
   padding: 0;
+  color: ${({ theme }) => theme.text.secondary};
   font-size: ${({ theme }) => theme.font.size5};
   list-style: none;
+
+  svg {
+    fill: ${({ theme }) => theme.text.secondary};
+  }
 
   ${({ isLink }) =>
     isLink &&
     css`
       cursor: pointer;
       :hover {
-        color: #2e86c1;
+        color: ${({ theme }) => theme.blue.primary};
+
+        svg {
+          fill: ${({ theme }) => theme.blue.primary};
+        }
       }
     `}
 `;

@@ -5,15 +5,20 @@ const Hero = () => {
   return (
     <Container>
       <Header>Donghyuk Yu</Header>
-      <p style={{ color: '#566573' }}>
-        <strong style={{ color: 'black' }}>
-          배움을 즐기고 두려워하지 않는 프론트엔드 개발자입니다.
-        </strong>
+      <Blurb>
+        <strong>배움을 즐기고 두려워하지 않는 프론트엔드 개발자입니다.</strong>
         <br />
-        <TypeIt>
-          React를 통해 개발하고 있으며, Next.js와 Typescript에 관심이 많습니다.
-        </TypeIt>
-      </p>
+        <TypeIt
+          options={{ speed: 100 }}
+          getBeforeInit={(instance: TypeIt) => {
+            instance.type(
+              'React를 통해 개발하고 있으며, Next.js와 Typescript에 관심이 많습니다.'
+            );
+
+            return instance;
+          }}
+        />
+      </Blurb>
     </Container>
   );
 };
@@ -28,4 +33,13 @@ const Container = styled.section`
 const Header = styled.h2`
   margin: 0 0 1rem 0;
   font-size: ${({ theme }) => theme.font.size10};
+`;
+
+const Blurb = styled.p`
+  color: ${({ theme }) => theme.text.tertiary};
+
+  strong {
+    font-weight: 600;
+    color: ${({ theme }) => theme.text.primary};
+  }
 `;
