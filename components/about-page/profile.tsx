@@ -31,21 +31,31 @@ const Profile = () => {
   return (
     <Container>
       <ProfileWrapper>
-        <Blurb>
-          <TypeIt
-            element="h2"
-            options={{ speed: 100 }}
-            getBeforeInit={(instance: TypeIt) => {
-              instance
-                .type('안녕하세요.')
-                .pause(500)
-                .type(`<br>프론트엔드 개발자 <strong >유동혁</strong>입니다.`)
-                .pause(750);
+        <Content>
+          <Blurb>
+            <TypeIt
+              element="h2"
+              options={{ speed: 100 }}
+              getBeforeInit={(instance: TypeIt) => {
+                instance
+                  .type('안녕하세요.')
+                  .pause(500)
+                  .type(`<br>프론트엔드 개발자 <strong >유동혁</strong>입니다.`)
+                  .pause(750);
 
-              return instance;
-            }}
-          />
-        </Blurb>
+                return instance;
+              }}
+            />
+          </Blurb>
+          <Description>
+            새로운 것을 배우고 익히는 것을 좋아하며,
+            <br />
+            Notion과 블로그에 새롭게 배운 지식들을 기록하며 성장하고 있습니다.
+            <br />
+            또한, 개발 중 마주친 문제는 적극적으로 해결하고 두려워 하지
+            않습니다.
+          </Description>
+        </Content>
         <Avatar>
           <Image
             src="/images/about/profile.jpg"
@@ -90,11 +100,21 @@ const ProfileWrapper = styled.div`
   }
 `;
 
+const Content = styled.div`
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+`;
+
 const Blurb = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
   font-size: ${({ theme }) => theme.font.size8};
+  margin-bottom: 1rem;
+`;
+
+const Description = styled.p`
+  color: #566573;
 `;
 
 const Avatar = styled.div`

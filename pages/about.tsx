@@ -1,4 +1,5 @@
 import Profile from '../components/about-page/profile';
+import Skills from '../components/about-page/skills';
 import styled from 'styled-components';
 
 const AboutPage = () => {
@@ -7,6 +8,7 @@ const AboutPage = () => {
       <Title>About</Title>
       <Profile />
       <Title>Skills</Title>
+      <Skills />
     </Container>
   );
 };
