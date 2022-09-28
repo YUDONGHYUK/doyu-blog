@@ -1,5 +1,5 @@
 import PostsGrid from './PostsGrid';
-import { Post } from '../../type';
+import { Post } from '../../types';
 import styled from 'styled-components';
 
 type AllPostsProps = {

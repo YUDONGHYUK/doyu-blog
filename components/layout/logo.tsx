@@ -1,5 +1,5 @@
 const Logo = () => {
-  return <div>Doyu's Blog</div>;
+  return <div>Doyu&apos;s Blog</div>;
 };
 
 export default Logo;

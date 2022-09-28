@@ -21,7 +21,7 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
+  margin: 1rem 0 2rem 0;
   border-bottom: 1px solid #d5d8dc;
   padding-bottom: 2rem;
   gap: 1rem;
@@ -35,5 +35,5 @@ const Title = styled.h1`
   font-size: ${({ theme }) => theme.font.size8};
   margin: 0;
   line-height: initial;
-  text-align: center;
+  text-align: start;
 `;

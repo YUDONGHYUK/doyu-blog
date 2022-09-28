@@ -36,7 +36,7 @@ const Profile = () => {
             <TypeIt
               element="h2"
               options={{ speed: 100 }}
-              getBeforeInit={(instance: TypeIt) => {
+              getBeforeInit={(instance: any) => {
                 instance
                   .type('안녕하세요.')
                   .pause(500)

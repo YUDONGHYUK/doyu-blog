@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import PostGrid from '../posts/PostsGrid';
-import { Post } from '../../type';
+import { Post } from '../../types';
 import styled from 'styled-components';
 
 type LatestPostsProps = {

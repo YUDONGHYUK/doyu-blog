@@ -22,12 +22,12 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   h4,
   h5,
   h6 {
+    margin-top: 2rem;
     font-weight: bold;
     color: ${({ theme }) => theme.text.primary};
   }
 
   code {
-    font-weight: bold;
     color: #82E0AA;
   }
 

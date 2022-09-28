@@ -5,13 +5,13 @@ import Logo from './Logo';
 import Icon from '../icons/icon';
 import ScrollIndicator from './ScrollIndicater';
 import styled from 'styled-components';
-import { lightTheme, ThemeType } from '../../styles/theme';
+import { lightTheme } from '../../styles/theme';
 
 const MainNavigation = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <Header activeTheme={theme}>
+    <Header>
       <Container>
         <Link href="/">
           <a>
@@ -41,7 +41,7 @@ const MainNavigation = () => {
 
 export default MainNavigation;
 
-const Header = styled.header<{ activeTheme: ThemeType }>`
+const Header = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
