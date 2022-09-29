@@ -21,6 +21,6 @@ const Container = styled.section``;
 
 const Title = styled.h2`
   padding: 1rem 0;
-  font-size: ${({ theme }) => theme.font.size10};
+  font-size: ${({ theme }) => theme.font10};
   text-align: center;
 `;

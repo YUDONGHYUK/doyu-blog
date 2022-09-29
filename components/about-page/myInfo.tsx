@@ -33,12 +33,12 @@ const Info = styled.li<{ isLink?: boolean }>`
   align-items: center;
   margin: 0;
   padding: 0;
-  color: ${({ theme }) => theme.text.secondary};
-  font-size: ${({ theme }) => theme.font.size5};
+  color: ${({ theme }) => theme.text2};
+  font-size: ${({ theme }) => theme.font5};
   list-style: none;
 
   svg {
-    fill: ${({ theme }) => theme.text.secondary};
+    fill: ${({ theme }) => theme.text2};
   }
 
   ${({ isLink }) =>
@@ -46,10 +46,10 @@ const Info = styled.li<{ isLink?: boolean }>`
     css`
       cursor: pointer;
       :hover {
-        color: ${({ theme }) => theme.blue.primary};
+        color: ${({ theme }) => theme.blue1};
 
         svg {
-          fill: ${({ theme }) => theme.blue.primary};
+          fill: ${({ theme }) => theme.blue1};
         }
       }
     `}

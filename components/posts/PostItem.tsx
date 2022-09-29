@@ -13,7 +13,7 @@ const PostItem = ({ post }: PostItemProps) => {
     frontMatter: { title, image, excerpt, date },
   } = post;
 
-  const formattedDate = new Date(date).toLocaleDateString('en-US', {
+  const formattedDate = new Date(date).toLocaleDateString('ko-KR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -53,7 +53,7 @@ const Item = styled.li`
   border-radius: 0.5rem;
   padding: 0;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  background-color: ${({ theme }) => theme.bgColor.secondary};
+  background-color: ${({ theme }) => theme.bg_element};
   text-align: center;
   transition: transform 250ms ease-in;
 
@@ -83,16 +83,16 @@ const ContentWrapper = styled.div`
 
 const Title = styled.h3`
   margin: 0.5rem 0;
-  font-size: ${({ theme }) => theme.font.size6};
+  font-size: ${({ theme }) => theme.font6};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
 const Time = styled.time`
-  font-size: ${({ theme }) => theme.font.size4};
+  font-size: ${({ theme }) => theme.font4};
   font-style: italic;
-  color: ${({ theme }) => theme.text.tertiary};
+  color: ${({ theme }) => theme.text3};
 `;
 
 const Paragraph = styled.p`
@@ -102,5 +102,5 @@ const Paragraph = styled.p`
   overflow: hidden;
   margin-top: 1rem;
   line-height: 1.5rem;
-  color: ${({ theme }) => theme.text.secondary};
+  color: ${({ theme }) => theme.text2};
 `;

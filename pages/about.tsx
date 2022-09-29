@@ -1,5 +1,4 @@
 import Profile from '../components/about-page/profile';
-// import Skills from '../components/about-page/Skills';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
@@ -30,7 +29,7 @@ export default AboutPage;
 const Container = styled.div``;
 
 const Title = styled.h2`
-  font-size: ${({ theme }) => theme.font.size8};
+  font-size: ${({ theme }) => theme.font8};
 `;
 
 const ResumeBox = styled.div`
@@ -41,14 +40,14 @@ const ResumeBox = styled.div`
 `;
 
 const Button = styled.button`
-  border: 1px solid ${({ theme }) => theme.borderColor};
+  border: 1px solid ${({ theme }) => theme.border};
   border-radius: 0.5rem;
   padding: 1rem 2rem;
-  color: ${({ theme }) => theme.text.secondary};
-  background-color: ${({ theme }) => theme.bgColor.primary};
-  font-size: ${({ theme }) => theme.font.size5};
+  color: ${({ theme }) => theme.text2};
+  background-color: ${({ theme }) => theme.bg_page};
+  font-size: ${({ theme }) => theme.font5};
 
   :hover {
-    color: ${({ theme }) => theme.blue.primary};
+    color: ${({ theme }) => theme.blue1};
   }
 `;

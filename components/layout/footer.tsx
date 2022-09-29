@@ -35,14 +35,14 @@ const IconWrapper = styled.div`
   margin-bottom: 0.5rem;
 
   svg {
-    fill: ${({ theme }) => theme.text.secondary};
+    fill: ${({ theme }) => theme.text2};
 
     :hover {
-      fill: ${({ theme }) => theme.blue.primary};
+      fill: ${({ theme }) => theme.blue1};
     }
   }
 `;
 
 const Right = styled.span`
-  color: ${({ theme }) => theme.text.secondary};
+  color: ${({ theme }) => theme.text2};
 `;

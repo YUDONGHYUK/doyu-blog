@@ -1,19 +1,36 @@
 import { createGlobalStyle } from 'styled-components';
-import { ThemeType } from './theme';
+import { themes } from './theme';
 
-export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
+export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
 
+  body{
+    ${themes.light}
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      ${themes.dark}
+    }
+  }
+
+  body[data-theme='light'] {
+    ${themes.light};
+  }
+
+  body[data-theme='dark'] {
+    ${themes.dark};
+  }
 
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.125rem;
     font-weight: 300;
-    background-color: ${({ theme }) => theme.bgColor.primary};
-    color: ${({ theme }) => theme.text.secondary}
+    background-color: var(--bg-page);
+    color: var(--text2);
   }
 
   h1,
@@ -24,7 +41,8 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   h6 {
     margin-top: 2rem;
     font-weight: bold;
-    color: ${({ theme }) => theme.text.primary};
+    color: var(--text1);
+
   }
 
   code {
@@ -34,7 +52,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.text.primary}
+    color: var(--text1);
   }
 
   ul, li {

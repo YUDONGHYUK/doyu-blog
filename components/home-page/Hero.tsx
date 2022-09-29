@@ -32,14 +32,14 @@ const Container = styled.section`
 
 const Header = styled.h2`
   margin: 0 0 1rem 0;
-  font-size: ${({ theme }) => theme.font.size10};
+  font-size: ${({ theme }) => theme.font10};
 `;
 
 const Blurb = styled.p`
-  color: ${({ theme }) => theme.text.tertiary};
+  color: ${({ theme }) => theme.text3};
 
   strong {
     font-weight: 600;
-    color: ${({ theme }) => theme.text.primary};
+    color: ${({ theme }) => theme.text1};
   }
 `;

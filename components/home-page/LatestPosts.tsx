@@ -29,14 +29,14 @@ const Wrapper = styled.div`
   align-items: center;
 
   a {
-    color: ${({ theme }) => theme.blue.primary};
+    color: ${({ theme }) => theme.blue1};
 
     :hover {
-      color: ${({ theme }) => theme.blue.secondary};
+      color: ${({ theme }) => theme.blue2};
     }
   }
 `;
 
 const Title = styled.h2`
-  font-size: ${({ theme }) => theme.font.size8};
+  font-size: ${({ theme }) => theme.font8};
 `;

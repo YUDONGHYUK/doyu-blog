@@ -4,16 +4,16 @@ import Head from 'next/head';
 import Layout from '../components/layout/Layout';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/global-style';
-import { lightTheme, darkTheme, ThemeType } from '../styles/theme';
 import { useDarkMode } from '../lib/useDarkMode';
+import { themedPalette } from '../styles/theme';
 
 type ThemeContextType = {
-  theme: ThemeType;
+  theme: 'light' | 'dark' | undefined;
   toggleTheme: () => void;
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: lightTheme,
+  theme: 'light',
   toggleTheme: () => {
     return null;
   },
@@ -22,8 +22,6 @@ export const ThemeContext = createContext<ThemeContextType>({
 function MyApp({ Component, pageProps }: AppProps) {
   const { theme, toggleTheme } = useDarkMode();
 
-  const themeMode = theme === lightTheme ? lightTheme : darkTheme;
-
   return (
     <>
       <Head>
@@ -31,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Doyu blog</title>
       </Head>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
-        <ThemeProvider theme={themeMode}>
+        <ThemeProvider theme={themedPalette}>
           <GlobalStyle />
           <Layout>
             <Component {...pageProps} />

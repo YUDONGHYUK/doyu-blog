@@ -32,7 +32,7 @@ const Header = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: ${({ theme }) => theme.font.size8};
+  font-size: ${({ theme }) => theme.font8};
   margin: 0;
   line-height: initial;
   text-align: start;

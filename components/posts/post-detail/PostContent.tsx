@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-import rangeParser from 'parse-numeric-range';
+import rehypeRaw from 'rehype-raw';
 
 import PostHeader from './PostHeader';
 import { Post } from '../../../types';
@@ -13,7 +13,7 @@ import scss from 'react-syntax-highlighter/dist/cjs/languages/prism/scss';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import markdown from 'react-syntax-highlighter/dist/cjs/languages/prism/markdown';
 import json from 'react-syntax-highlighter/dist/cjs/languages/prism/json';
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 SyntaxHighlighter.registerLanguage('tsx', tsx);
 SyntaxHighlighter.registerLanguage('typescript', typescript);
@@ -27,7 +27,7 @@ type PostContentProps = {
 };
 
 const PostContent = ({ post }: PostContentProps) => {
-  const syntaxTheme = oneDark;
+  const syntaxTheme = dracula;
 
   const MarkdownComponents: object = {
     p: (paragraph: { children?: boolean; node?: any }) => {
@@ -51,54 +51,19 @@ const PostContent = ({ post }: PostContentProps) => {
       return <p>{paragraph.children}</p>;
     },
 
-    // code({ node, inline, className, children, ...props }: any) {
-    //   const match = /language-(\w+)/.exec(className || '');
-    //   return !inline && match ? (
-    //     <SyntaxHighlighter
-    //       style={syntaxTheme} // try passing different color schemes, drak, dracula etc.
-    //       language={match[1]}
-    //       PreTag="div"
-    //       className="codeStyle"
-    //       {...props}
-    //     >
-    //       {String(children).replace(/\n$/, '')}
-    //     </SyntaxHighlighter>
-    //   ) : (
-    //     <code>{children}</code>
-    //   );
-    // },
-
-    code({ node, className, ...props }: any) {
+    code({ node, inline, className, ...props }: any) {
       const match = /language-(\w+)/.exec(className || '');
       const hasMeta = node?.data?.meta;
-
-      const applyHighlights: object = (applyHighlights: number) => {
-        if (hasMeta) {
-          const RE: any = /{([\d,-]+)}/;
-          const metadata = node.data.meta?.replace(/\s/g, '');
-          const strlineNumbers = RE?.test(metadata)
-            ? RE?.exec(metadata)[1]
-            : '0';
-          const highlightLines = rangeParser(strlineNumbers);
-          const highlight = highlightLines;
-          const data: string | null = highlight.includes(applyHighlights)
-            ? 'highlight'
-            : null;
-          return { data };
-        } else {
-          return {};
-        }
-      };
 
       return match ? (
         <SyntaxHighlighter
           style={syntaxTheme}
           language={match[1]}
           PreTag="div"
+          className="codeStyle"
           showLineNumbers={true}
           wrapLines={hasMeta ? true : false}
           useInlineStyles={true}
-          lineProps={applyHighlights}
           {...props}
         />
       ) : (
@@ -112,7 +77,11 @@ const PostContent = ({ post }: PostContentProps) => {
   return (
     <Article>
       <PostHeader title={post.frontMatter.title} image={imagePath} />
-      <ReactMarkdown components={MarkdownComponents} className="codeStyle">
+      <ReactMarkdown
+        components={MarkdownComponents}
+        className="codeStyle"
+        rehypePlugins={[[rehypeRaw, { passThrough: ['element'] }]]}
+      >
         {post.content}
       </ReactMarkdown>
     </Article>

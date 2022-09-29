@@ -83,7 +83,7 @@ const Profile = () => {
 export default Profile;
 
 const Container = styled.section`
-  border-bottom: 1px solid ${({ theme }) => theme.borderColor};
+  border-bottom: 1px solid ${({ theme }) => theme.border};
   padding-bottom: 2rem;
 `;
 
@@ -109,12 +109,12 @@ const Blurb = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
-  font-size: ${({ theme }) => theme.font.size8};
+  font-size: ${({ theme }) => theme.font8};
   margin-bottom: 1rem;
 `;
 
 const Description = styled.p`
-  color: ${({ theme }) => theme.text.secondary};
+  color: ${({ theme }) => theme.text2};
 `;
 
 const Avatar = styled.div`

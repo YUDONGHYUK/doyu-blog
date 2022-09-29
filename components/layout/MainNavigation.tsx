@@ -5,7 +5,6 @@ import Logo from './Logo';
 import Icon from '../icons/icon';
 import ScrollIndicator from './ScrollIndicater';
 import styled from 'styled-components';
-import { lightTheme } from '../../styles/theme';
 
 const MainNavigation = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
@@ -28,7 +27,10 @@ const MainNavigation = () => {
             </ListItem>
             <ListItem>
               <DarkModeBtn onClick={() => toggleTheme()}>
-                <Icon kind={theme === lightTheme ? 'sun' : 'moon'} size={22} />
+                <Icon
+                  kind={theme && theme === 'light' ? 'sun' : 'moon'}
+                  size={22}
+                />
               </DarkModeBtn>
             </ListItem>
           </List>
@@ -45,8 +47,8 @@ const Header = styled.header`
   position: sticky;
   top: 0;
   width: 100%;
-  color: ${({ theme }) => theme.text.primary};
-  background-color: ${({ theme }) => theme.bgColor.primary};
+  color: ${({ theme }) => theme.text1};
+  background-color: ${({ theme }) => theme.bg_page};
   backdrop-filter: blur(7px);
   z-index: 100;
 `;
@@ -62,7 +64,7 @@ const Container = styled.div`
   padding: 0 1.5rem;
 
   a {
-    font-size: ${({ theme }) => theme.font.size5};
+    font-size: ${({ theme }) => theme.font5};
   }
 `;
 
@@ -81,7 +83,7 @@ const ListItem = styled.li`
 
   a {
     padding: 0.1rem 0;
-    font-size: ${({ theme }) => theme.font.size4};
+    font-size: ${({ theme }) => theme.font4};
     transition: color 300ms ease;
   }
 
@@ -96,7 +98,7 @@ const DarkModeBtn = styled.button`
   align-items: center;
 
   svg {
-    fill: ${({ theme }) => theme.text.primary};
+    fill: ${({ theme }) => theme.text1};
 
     :hover {
       fill: #f39c12;

@@ -8,9 +8,13 @@ import Document, {
 import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
+  static async getInitialProps(context: any) {
+    const ctx: DocumentContext = context;
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
+
+    const theme = context.req?.cookies?.theme;
+
     try {
       ctx.renderPage = () =>
         originalRenderPage({
@@ -19,8 +23,10 @@ class MyDocument extends Document {
         });
 
       const initialProps = await Document.getInitialProps(ctx);
+
       return {
         ...initialProps,
+        theme,
         styles: (
           <>
             {initialProps.styles}
@@ -34,6 +40,8 @@ class MyDocument extends Document {
   }
 
   render() {
+    // const { theme } = this.props;
+
     return (
       <Html>
         <Head />
