@@ -5,7 +5,6 @@ import Logo from './Logo';
 import Icon from '../icons/icon';
 import ScrollIndicator from './ScrollIndicater';
 import styled from 'styled-components';
-
 const MainNavigation = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
@@ -27,10 +26,9 @@ const MainNavigation = () => {
             </ListItem>
             <ListItem>
               <DarkModeBtn onClick={() => toggleTheme()}>
-                <Icon
-                  kind={theme && theme === 'light' ? 'sun' : 'moon'}
-                  size={22}
-                />
+                {theme && (
+                  <Icon kind={theme === 'light' ? 'sun' : 'moon'} size={22} />
+                )}
               </DarkModeBtn>
             </ListItem>
           </List>
@@ -79,6 +77,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
+  min-width: 30px;
   margin: 0 1rem;
 
   a {

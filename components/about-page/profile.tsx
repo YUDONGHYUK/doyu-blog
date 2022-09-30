@@ -59,6 +59,8 @@ const Profile = () => {
         <Avatar>
           <Image
             src="/images/about/profile.jpg"
+            placeholder="blur"
+            blurDataURL="/images/about/profile.jpg"
             alt="profile"
             width={230}
             height={230}

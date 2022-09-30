@@ -29,6 +29,8 @@ const PostItem = ({ post }: PostItemProps) => {
           <ImageWrapper>
             <Image
               src={imagePath}
+              placeholder="blur"
+              blurDataURL={imagePath}
               alt={title}
               width={300}
               height={200}
