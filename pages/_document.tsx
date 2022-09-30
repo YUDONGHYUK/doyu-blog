@@ -13,8 +13,6 @@ class MyDocument extends Document {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
-    const theme = context.req?.cookies?.theme;
-
     try {
       ctx.renderPage = () =>
         originalRenderPage({
@@ -26,7 +24,6 @@ class MyDocument extends Document {
 
       return {
         ...initialProps,
-        theme,
         styles: (
           <>
             {initialProps.styles}
@@ -40,12 +37,27 @@ class MyDocument extends Document {
   }
 
   render() {
-    // const { theme } = this.props;
-
     return (
       <Html>
         <Head />
         <body>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            function getUserPreference() {
+              if(window.localStorage.getItem('theme')) {
+                return window.localStorage.getItem('theme')
+              }
+
+              return window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            }
+
+            document.body.dataset.theme = getUserPreference();
+          `,
+            }}
+          />
           <Main />
           <NextScript />
         </body>

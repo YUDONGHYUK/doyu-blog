@@ -9,12 +9,12 @@ export const useDarkMode = () => {
     if (mode === 'light') {
       document.body.dataset.theme = 'light';
       window.localStorage.setItem('theme', 'light');
-      document.cookie = 'theme=light; path=/;';
+      // document.cookie = 'theme=light; path=/;';
       setTheme(mode);
     } else {
       document.body.dataset.theme = 'dark';
       window.localStorage.setItem('theme', 'dark');
-      document.cookie = 'theme=dark; path=/;';
+      // document.cookie = 'theme=dark; path=/;';
       setTheme(mode);
     }
   };
