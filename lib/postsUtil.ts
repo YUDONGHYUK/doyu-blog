@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const NUM_OF_LATEST_POSTS = 4;
+const NUM_OF_LATEST_POSTS = 3;
 const postDirectory = path.join(process.cwd(), 'posts');
 
 export function getPostFiles() {
