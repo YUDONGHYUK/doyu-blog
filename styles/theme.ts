@@ -11,6 +11,7 @@ type ThemeVariables = {
   font16: string;
   font20: string;
   font40: string;
+  primary: string;
   bg_page: string;
   bg_element: string;
   text1: string;
@@ -43,6 +44,7 @@ const defaultTheme = {
 const themeVariableSets: Record<Theme, ThemeVariables> = {
   light: {
     ...defaultTheme,
+    primary: '#f39c12',
     bg_page: '#f8f7f4',
     bg_element: '#ffffff',
     text1: '#252525',
@@ -54,6 +56,7 @@ const themeVariableSets: Record<Theme, ThemeVariables> = {
   },
   dark: {
     ...defaultTheme,
+    primary: '#82e0aa',
     bg_page: '#1e1e1e',
     bg_element: '#232323',
     text1: '#f0f0f0',

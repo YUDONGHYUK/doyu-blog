@@ -100,6 +100,26 @@ const Article = styled.article`
       font-size: 1rem;
       font-weight: 500;
     }
+
+    a {
+      text-decoration: underline ${({ theme }) => theme.primary};
+
+      &:hover {
+        color: ${({ theme }) => theme.primary};
+      }
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 0 2rem;
+      border-left: 6px solid ${({ theme }) => theme.primary};
+      color: ${({ theme }) => theme.text2};
+      font-style: italic;
+
+      a {
+        text-decoration: none;
+      }
+    }
   }
 `;
 

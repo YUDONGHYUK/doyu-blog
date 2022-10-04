@@ -8,7 +8,7 @@ import { useDarkMode } from '../lib/useDarkMode';
 import { themedPalette } from '../styles/theme';
 
 type ThemeContextType = {
-  theme: 'light' | 'dark' | undefined;
+  theme: 'light' | 'dark' | null;
   toggleTheme: () => void;
 };
 

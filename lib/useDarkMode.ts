@@ -3,18 +3,16 @@ import { useState, useEffect } from 'react';
 type Theme = 'light' | 'dark';
 
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState<Theme>();
+  const [theme, setTheme] = useState<Theme | null>(null);
 
   const setMode = (mode: Theme) => {
     if (mode === 'light') {
       document.body.dataset.theme = 'light';
       window.localStorage.setItem('theme', 'light');
-      // document.cookie = 'theme=light; path=/;';
       setTheme(mode);
     } else {
       document.body.dataset.theme = 'dark';
       window.localStorage.setItem('theme', 'dark');
-      // document.cookie = 'theme=dark; path=/;';
       setTheme(mode);
     }
   };
@@ -25,9 +23,7 @@ export const useDarkMode = () => {
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme') as
-      | Theme
-      | undefined;
+    const localTheme = window.localStorage.getItem('theme') as Theme | null;
 
     window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)').matches &&
@@ -36,7 +32,7 @@ export const useDarkMode = () => {
       : localTheme
       ? setMode(localTheme)
       : setMode('light');
-  });
+  }, []);
 
   return { theme, toggleTheme };
 };

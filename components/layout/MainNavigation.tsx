@@ -5,6 +5,7 @@ import Logo from './Logo';
 import Icon from '../icons/icon';
 import ScrollIndicator from './ScrollIndicater';
 import styled from 'styled-components';
+
 const MainNavigation = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 

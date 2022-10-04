@@ -10,7 +10,14 @@ const PostHeader = ({ title, image }: PostHeaderProps) => {
   return (
     <Header>
       <Title>{title}</Title>
-      <Image src={image} alt={title} width={200} height={150} />
+      <Image
+        src={image}
+        placeholder="blur"
+        blurDataURL={image}
+        alt={title}
+        width={200}
+        height={150}
+      />
     </Header>
   );
 };

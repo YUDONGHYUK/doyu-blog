@@ -61,6 +61,10 @@ const Item = styled.li`
 
   :hover {
     transform: scale(1.02);
+
+    h3 {
+      color: ${({ theme }) => theme.primary};
+    }
   }
 
   a {
@@ -89,6 +93,7 @@ const Title = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 250ms ease;
 `;
 
 const Time = styled.time`

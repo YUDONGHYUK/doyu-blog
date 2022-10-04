@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body{
+  body {
     ${themes.light}
   }
 
@@ -52,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: var(--text1);
+    color: inherit;
   }
 
   ul, li {
@@ -68,7 +68,7 @@ export const GlobalStyle = createGlobalStyle`
       margin-bottom: 0.5rem;
       padding-left: 0.5rem;
     }
-  } 
+  }
 
   p {
     margin: 0;
