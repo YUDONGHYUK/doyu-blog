@@ -17,6 +17,7 @@
     "react-markdown": "^8.0.3",
     "react-syntax-highlighter": "^15.5.0",
     "rehype-raw": "^6.1.1",
+    "styled-components": "^5.3.6",
     "styled-reset": "^4.4.2",
     "typeit-react": "^2.6.0"
   },
