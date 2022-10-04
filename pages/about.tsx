@@ -1,4 +1,4 @@
-import Profile from '../components/about-page/profile';
+import Profile from '../components/about-page/Profile';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
