@@ -169,11 +169,12 @@ export const useDarkMode = () => {
 ## 다크모드 토글하기
 [useContext](https://reactjs.org/docs/hooks-reference.html#usecontext) 훅을 사용하여 useDarkMode에서 반환한 테마 토글 함수를 전달합니다. 그리고 사용하려는 곳에서 useContext로 전달한 테마와 테마 토글 함수를 사용합니다.
 
-```tsx
+```jsx
 // pages/_app.tsx
 
 import React, { createContext } from 'react';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import Layout from '../components/layout/Layout';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/global-style';
@@ -186,7 +187,7 @@ type ThemeContextType = {
 };
 
 export const ThemeContext = createContext<ThemeContextType>({
-  theme: null,
+  theme: 'light',
   toggleTheme: () => {
     return null;
   },
@@ -197,6 +198,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Doyu blog</title>
+      </Head>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <ThemeProvider theme={themedPalette}>
           <GlobalStyle />

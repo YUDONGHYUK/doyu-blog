@@ -1,5 +1,6 @@
 import Icon from '../icons/icon';
 import styled, { css } from 'styled-components';
+import Link from 'next/link';
 
 type MyInfoProps = {
   kind: 'phone' | 'email' | 'github' | 'notion';
@@ -11,10 +12,12 @@ type MyInfoProps = {
 const MyInfo = ({ kind, text, isLink, address }: MyInfoProps) => {
   if (isLink && address) {
     return (
-      <Info isLink={isLink}>
-        <Icon kind={kind} href={address} size={24} />
-        <Text>{text}</Text>
-      </Info>
+      <Link href={address} passHref>
+        <Info isLink={isLink}>
+          <Icon kind={kind} size={24} />
+          <Text>{text}</Text>
+        </Info>
+      </Link>
     );
   }
 
