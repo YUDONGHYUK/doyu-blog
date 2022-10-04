@@ -13,7 +13,7 @@ import scss from 'react-syntax-highlighter/dist/cjs/languages/prism/scss';
 import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash';
 import markdown from 'react-syntax-highlighter/dist/cjs/languages/prism/markdown';
 import json from 'react-syntax-highlighter/dist/cjs/languages/prism/json';
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import dracula from 'react-syntax-highlighter/dist/cjs/styles/prism/dracula';
 
 SyntaxHighlighter.registerLanguage('tsx', tsx);
 SyntaxHighlighter.registerLanguage('typescript', typescript);
