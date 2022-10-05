@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
 import PostContent from '../../components/posts/post-detail/PostContent';
+import TableOfContents from '../../components/posts/post-detail/TableOfContents';
 import { Post } from '../../types/index';
 import { getPostData, getPostFiles } from '../../lib/postsUtil';
 
@@ -10,7 +12,14 @@ type PostDetailPageProps = {
 };
 
 const PostDetailPage = ({ post }: PostDetailPageProps) => {
-  return <PostContent post={post} />;
+  const [headingList, setHeadingList] = useState<string[]>([]);
+
+  return (
+    <>
+      <PostContent post={post} setHeadingList={setHeadingList} />
+      <TableOfContents headingList={headingList} />
+    </>
+  );
 };
 
 export default PostDetailPage;

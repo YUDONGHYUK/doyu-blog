@@ -1,6 +1,9 @@
+import { useEffect, Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
+import { generateSlug } from '../../../lib/generateSlug';
+import { scrollToHeading } from '../../../lib/scrollToHeading';
 
 import PostHeader from './PostHeader';
 import { Post } from '../../../types';
@@ -26,9 +29,10 @@ SyntaxHighlighter.registerLanguage('json', json);
 
 type PostContentProps = {
   post: Post;
+  setHeadingList: Dispatch<SetStateAction<string[]>>;
 };
 
-const PostContent = ({ post }: PostContentProps) => {
+const PostContent = ({ post, setHeadingList }: PostContentProps) => {
   const syntaxTheme = dracula;
 
   const MarkdownComponents: object = {
@@ -72,9 +76,41 @@ const PostContent = ({ post }: PostContentProps) => {
         <code className={className} {...props} />
       );
     },
+
+    h2: (props: any) => {
+      const arr = props.children;
+      let heading = '';
+
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i]?.type !== undefined) {
+          for (let j = 0; j < arr[i].props.children.length; j++) {
+            heading += arr[i]?.props?.children[0];
+          }
+        } else heading += arr[i];
+      }
+
+      const slug = generateSlug(heading);
+
+      return (
+        <h2 id={slug}>
+          <a {...props} onClick={() => scrollToHeading(slug)} />
+        </h2>
+      );
+    },
   };
 
   const imagePath = `/images/posts/${post.slug}/${post.frontMatter.image}`;
+
+  useEffect(() => {
+    const headings = [];
+    const h2 = document.querySelectorAll('h2');
+
+    for (let i = 0; i < h2.length; i++) {
+      headings.push(h2[i].innerText);
+    }
+
+    setHeadingList(headings);
+  }, []);
 
   return (
     <Article>
@@ -101,6 +137,13 @@ const Article = styled.article`
     pre code {
       font-size: 1rem;
       font-weight: 500;
+    }
+
+    h2 {
+      a {
+        cursor: pointer;
+        text-decoration: none;
+      }
     }
 
     a {
