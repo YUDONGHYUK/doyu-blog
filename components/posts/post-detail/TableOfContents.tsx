@@ -4,9 +4,10 @@ import styled from 'styled-components';
 
 type TableOfContentsProps = {
   headingList: string[];
+  activeId: string | null;
 };
 
-const TableOfContents = ({ headingList }: TableOfContentsProps) => {
+const TableOfContents = ({ headingList, activeId }: TableOfContentsProps) => {
   const handleClick = (heading: string) => {
     const slug = generateSlug(heading);
 
@@ -16,11 +17,17 @@ const TableOfContents = ({ headingList }: TableOfContentsProps) => {
   return (
     <Aside>
       <HeadingList>
-        {headingList.map((heading) => (
-          <li key={heading} onClick={() => handleClick(heading)}>
-            {heading}
-          </li>
-        ))}
+        {headingList.map((heading) => {
+          return (
+            <li
+              key={heading}
+              onClick={() => handleClick(heading)}
+              className={heading === activeId ? 'active' : ''}
+            >
+              {heading}
+            </li>
+          );
+        })}
       </HeadingList>
     </Aside>
   );
@@ -52,5 +59,9 @@ const HeadingList = styled.ul`
       color: ${({ theme }) => theme.primary};
       cursor: pointer;
     }
+  }
+
+  li.active {
+    color: ${({ theme }) => theme.primary};
   }
 `;

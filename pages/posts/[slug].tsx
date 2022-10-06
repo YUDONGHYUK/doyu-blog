@@ -6,6 +6,7 @@ import PostContent from '../../components/posts/post-detail/PostContent';
 import TableOfContents from '../../components/posts/post-detail/TableOfContents';
 import { Post } from '../../types/index';
 import { getPostData, getPostFiles } from '../../lib/postsUtil';
+import { useIntersectionObserver } from '../../lib/useintersectionObserver';
 
 type PostDetailPageProps = {
   post: Post;
@@ -13,11 +14,14 @@ type PostDetailPageProps = {
 
 const PostDetailPage = ({ post }: PostDetailPageProps) => {
   const [headingList, setHeadingList] = useState<string[]>([]);
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  useIntersectionObserver(setActiveId);
 
   return (
     <>
       <PostContent post={post} setHeadingList={setHeadingList} />
-      <TableOfContents headingList={headingList} />
+      <TableOfContents headingList={headingList} activeId={activeId} />
     </>
   );
 };
