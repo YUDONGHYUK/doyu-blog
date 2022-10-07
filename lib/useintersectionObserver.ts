@@ -11,8 +11,6 @@ export const useIntersectionObserver = (
 
   useEffect(() => {
     const callback: IntersectionObserverCallback = (entries) => {
-      if (window.scrollY === 0) return;
-
       headingElementsRef.current = entries.reduce((map, headingElement) => {
         map[headingElement.target.id] = headingElement;
 
@@ -27,7 +25,7 @@ export const useIntersectionObserver = (
     };
 
     const observer = new IntersectionObserver(callback, {
-      rootMargin: '-105px 0px -70% 0px',
+      rootMargin: '-105px 0px -40% 0px',
     });
 
     const headingElements = Array.from(document.querySelectorAll('h2'));
