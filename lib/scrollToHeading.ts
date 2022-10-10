@@ -1,10 +1,11 @@
-const MAIN_NAVIAGATION_HEIGHT = 75;
-
 export const scrollToHeading = (slug: string) => {
+  console.log(`#${slug}`);
   const element = document.querySelector(`#${slug}`) as HTMLHeadingElement;
 
+  window.history.pushState('', '', `#${slug}`);
+
   window.scrollTo({
-    top: element.offsetTop - MAIN_NAVIAGATION_HEIGHT,
+    top: element.offsetTop,
     behavior: 'smooth',
   });
 };

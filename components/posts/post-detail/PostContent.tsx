@@ -67,7 +67,7 @@ const PostContent = ({ post, setHeadingList }: PostContentProps) => {
           language={match[1]}
           PreTag="div"
           className="codeStyle"
-          showLineNumbers={true}
+          showLineNumbers={false}
           wrapLines={hasMeta ? true : false}
           useInlineStyles={true}
           {...props}
@@ -93,7 +93,14 @@ const PostContent = ({ post, setHeadingList }: PostContentProps) => {
 
       return (
         <h2 id={slug}>
-          <a {...props} onClick={() => scrollToHeading(slug)} />
+          <a
+            {...props}
+            href={`#${slug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToHeading(slug);
+            }}
+          />
         </h2>
       );
     },
@@ -129,9 +136,9 @@ const PostContent = ({ post, setHeadingList }: PostContentProps) => {
 export default PostContent;
 
 const Article = styled.article`
-  width: 100%;
+  position: relative;
   margin: 0 auto;
-  padding: 1.5rem 0;
+  margin-top: 1.5rem;
 
   .codeStyle {
     pre code {

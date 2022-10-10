@@ -8,23 +8,22 @@ type TableOfContentsProps = {
 };
 
 const TableOfContents = ({ headingList, activeId }: TableOfContentsProps) => {
-  const handleClick = (heading: string) => {
-    const slug = generateSlug(heading);
-
-    scrollToHeading(slug);
-  };
-
   return (
     <Aside>
       <HeadingList>
         {headingList.map((heading) => {
           return (
-            <li
-              key={heading}
-              onClick={() => handleClick(heading)}
-              className={heading === activeId ? 'active' : ''}
-            >
-              {heading}
+            <li key={heading} className={heading === activeId ? 'active' : ''}>
+              <a
+                href={`#${generateSlug(heading)}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const slug = generateSlug(heading);
+                  scrollToHeading(slug);
+                }}
+              >
+                {heading}
+              </a>
             </li>
           );
         })}

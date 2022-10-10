@@ -21,7 +21,10 @@ export const useIntersectionObserver = (
         (heading) => heading.isIntersecting
       );
 
-      visibleHeadings[0] && setActiveId(visibleHeadings[0].target.textContent);
+      visibleHeadings.length > 0 &&
+        setActiveId(
+          visibleHeadings[visibleHeadings.length - 1].target.textContent
+        );
     };
 
     const observer = new IntersectionObserver(callback, {
