@@ -9,10 +9,8 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <Container>
-      <BindBox>
-        <MainNavigation />
-        <Main>{children}</Main>
-      </BindBox>
+      <MainNavigation />
+      <Main>{children}</Main>
       <Footer />
     </Container>
   );
@@ -24,13 +22,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
 `;
-
-const BindBox = styled.div``;
 
 const Main = styled.main`
   max-width: 51rem;
+  min-height: calc(100vh - 64px - 96px);
   margin: auto;
   padding: 0 1.5rem 3rem 1.5rem;
 `;
