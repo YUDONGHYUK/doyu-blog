@@ -51,7 +51,6 @@ const Profile = () => {
             새로운 것을 배우고 익히는 것을 좋아하며,
             <br />
             Notion과 블로그에 새롭게 배운 지식들을 기록하며 성장하고 있습니다.
-            <br />
             또한, 개발 중 마주친 문제는 적극적으로 해결하고 두려워 하지
             않습니다.
           </Description>
@@ -90,9 +89,12 @@ const Container = styled.section`
 `;
 
 const ProfileWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; */
+  display: grid;
+  grid-template-columns: 1fr 230px;
+  column-gap: 2rem;
   padding-bottom: 2rem;
   --ti-cursor-transform: translate(0.1rem, -0.2rem);
 
@@ -100,11 +102,24 @@ const ProfileWrapper = styled.div`
     border-radius: 50%;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   }
+
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    /* grid-template-columns: repeat(1, 1fr); */
+
+    padding-bottom: 1rem;
+  }
 `;
 
 const Content = styled.div`
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+
+  @media screen and (max-width: 768px) {
+    grid-template-rows: repeat(1, 1fr);
+  }
 `;
 
 const Blurb = styled.div`
@@ -113,18 +128,41 @@ const Blurb = styled.div`
   text-align: start;
   font-size: ${({ theme }) => theme.font8};
   margin-bottom: 1rem;
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Description = styled.p`
   color: ${({ theme }) => theme.text2};
+
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Avatar = styled.div`
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
+
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ContactWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
 `;

@@ -25,6 +25,7 @@ const Container = styled.div`
 `;
 
 const Main = styled.main`
+  width: 100%;
   max-width: 51rem;
   min-height: calc(100vh - 64px - 96px);
   margin: auto;

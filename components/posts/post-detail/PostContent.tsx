@@ -137,6 +137,7 @@ export default PostContent;
 
 const Article = styled.article`
   position: relative;
+  width: 100%;
   margin: 0 auto;
   margin-top: 1.5rem;
 
