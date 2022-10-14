@@ -89,9 +89,6 @@ const Container = styled.section`
 `;
 
 const ProfileWrapper = styled.div`
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center; */
   display: grid;
   grid-template-columns: 1fr 230px;
   column-gap: 2rem;
@@ -107,8 +104,6 @@ const ProfileWrapper = styled.div`
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    /* grid-template-columns: repeat(1, 1fr); */
-
     padding-bottom: 1rem;
   }
 `;
@@ -144,8 +139,6 @@ const Description = styled.p`
 `;
 
 const Avatar = styled.div`
-  /* margin-right: 1rem; */
-
   @media screen and (max-width: 768px) {
     margin-right: 0;
     margin-bottom: 2rem;

@@ -15,8 +15,6 @@ const AboutPage = () => {
     <Container>
       <Title>About</Title>
       <Profile />
-      {/* <Title>Skills</Title>
-      <Skills /> */}
       <ResumeBox>
         <Button onClick={goToResume}>Resume</Button>
       </ResumeBox>
