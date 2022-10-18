@@ -119,7 +119,7 @@ export const themes = {
 ## 다크모드 관리를 위한 custom hook
 테마와 테마 토글 함수 반환하는 useDarkMode라는 훅을 만들었습니다.
 
-```typescript
+```tsx
 // lib/useDarkMode.ts
 
 import { useState, useEffect } from 'react';
