@@ -1,5 +1,5 @@
 import PostItem from './PostItem';
-import { Post } from '../../types';
+import { Post } from '../../../types';
 import styled from 'styled-components';
 
 type PostGridProps = {

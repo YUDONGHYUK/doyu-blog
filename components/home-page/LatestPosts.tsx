@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import PostGrid from '../posts/PostsGrid';
+import PostGrid from '../posts/card-style/PostsGrid';
 import { Post } from '../../types';
 import styled from 'styled-components';
 

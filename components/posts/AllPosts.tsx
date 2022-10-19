@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import PostsGrid from './PostsGrid';
+// import PostsGrid from './PostsGrid';
+import PostsList from './list-style/PostsList';
 import { Post } from '../../types';
 import SearchButton from '../posts-page/SearchButton';
 import CloseIcon from '../icons/close';
@@ -33,7 +34,8 @@ const AllPosts = ({ posts }: AllPostsProps) => {
         <SearchButton search={search} setSearch={setSearch} />
       </InputWrapper>
       {filteredPosts.length > 0 ? (
-        <PostsGrid posts={filteredPosts} />
+        // <PostsGrid posts={filteredPosts} />
+        <PostsList posts={filteredPosts} />
       ) : (
         <NoPosts>
           No posts found.
@@ -56,6 +58,10 @@ const Title = styled.h2`
   padding: 1rem 0;
   font-size: ${({ theme }) => theme.font10};
   text-align: start;
+
+  @media screen and (max-width: 768px) {
+    font-size: ${({ theme }) => theme.font8};
+  }
 `;
 
 const InputWrapper = styled.div`
@@ -76,6 +82,10 @@ const InputWrapper = styled.div`
 
   svg {
     fill: ${({ theme }) => theme.text2};
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 1rem;
   }
 `;
 

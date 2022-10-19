@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Post } from '../../types';
+import { Post } from '../../../types';
 import styled from 'styled-components';
 
 type PostItemProps = {
