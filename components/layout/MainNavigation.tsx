@@ -91,6 +91,10 @@ const ListItem = styled.li`
   a:active {
     border-bottom: 2px solid #abb2b9;
   }
+
+  @media screen and (max-width: 768px) {
+    margin: 0 0.5rem;
+  }
 `;
 
 const DarkModeBtn = styled.button`

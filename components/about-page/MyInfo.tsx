@@ -60,4 +60,8 @@ const Info = styled.li<{ isLink?: boolean }>`
 
 const Text = styled.span`
   margin-left: 0.5rem;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;

@@ -27,7 +27,11 @@ export default AboutPage;
 const Container = styled.div``;
 
 const Title = styled.h2`
-  font-size: ${({ theme }) => theme.font8};
+  font-size: ${({ theme }) => theme.font10};
+
+  @media screen and (max-width: 768px) {
+    font-size: ${({ theme }) => theme.font8};
+  }
 `;
 
 const ResumeBox = styled.div`

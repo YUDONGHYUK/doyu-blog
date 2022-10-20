@@ -33,6 +33,10 @@ const Container = styled.section`
 const Header = styled.h2`
   margin: 0 0 1rem 0;
   font-size: ${({ theme }) => theme.font10};
+
+  @media screen and (max-width: 768px) {
+    font-size: ${({ theme }) => theme.font8};
+  }
 `;
 
 const Blurb = styled.p`

@@ -49,10 +49,9 @@ const Profile = () => {
           </Blurb>
           <Description>
             새로운 것을 배우고 익히는 것을 좋아하며,
-            <br />
-            Notion과 블로그에 새롭게 배운 지식들을 기록하며 성장하고 있습니다.
-            또한, 개발 중 마주친 문제는 적극적으로 해결하고 두려워 하지
-            않습니다.
+            <br /> Notion과 블로그에 새롭게 배운 지식들을 기록하며 성장하고
+            있습니다. 또한, 개발 중 마주친 문제는 적극적으로 해결하고 두려워
+            하지 않습니다.
           </Description>
         </Content>
         <Avatar>
@@ -126,6 +125,7 @@ const Blurb = styled.div`
 
   @media screen and (max-width: 768px) {
     text-align: center;
+    font-size: ${({ theme }) => theme.font6};
     margin-bottom: 2rem;
   }
 `;
@@ -135,6 +135,8 @@ const Description = styled.p`
 
   @media screen and (max-width: 768px) {
     text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: ${({ theme }) => theme.font4};
   }
 `;
 
@@ -149,13 +151,4 @@ const ContactWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    li {
-      margin-bottom: 1rem;
-    }
-  }
 `;
