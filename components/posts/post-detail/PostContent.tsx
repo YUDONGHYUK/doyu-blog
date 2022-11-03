@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { generateSlug } from '../../../lib/generateSlug';
 import { scrollToHeading } from '../../../lib/scrollToHeading';
+import rangeParser from 'parse-numeric-range';
 
 import PostHeader from './PostHeader';
 import { Post } from '../../../types';
@@ -61,15 +62,30 @@ const PostContent = ({ post, setHeadingList }: PostContentProps) => {
       const match = /language-(\w+)/.exec(className || '');
       const hasMeta = node?.data?.meta;
 
+      const applyHighlights: object = (lineNumber: number) => {
+        if (hasMeta) {
+          const highlightNum = node.data.meta?.replace(/\s/g, '');
+          const highlightNumArr = rangeParser(highlightNum);
+          const data: string | null = highlightNumArr.includes(lineNumber)
+            ? 'highlight'
+            : null;
+
+          return { data };
+        } else {
+          return {};
+        }
+      };
+
       return match ? (
         <SyntaxHighlighter
           style={syntaxTheme}
           language={match[1]}
           PreTag="div"
           className="codeStyle"
-          showLineNumbers={false}
+          showLineNumbers={true}
           wrapLines={hasMeta ? true : false}
           useInlineStyles={true}
+          lineProps={applyHighlights}
           {...props}
         />
       ) : (
@@ -145,6 +161,13 @@ const Article = styled.article`
     pre code {
       font-size: 1rem;
       font-weight: 500;
+
+      span[data='highlight'] {
+        display: block;
+        margin: 0 -1.125rem;
+        padding: 0 1.125rem;
+        background-color: ${({ theme }) => theme.code_highlight};
+      }
     }
 
     h2 {
