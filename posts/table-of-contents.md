@@ -43,7 +43,7 @@ export const useIntersectionObserver = () => {
 ## observer에 관찰요소 등록하기
 observer를 생성한 후에 관찰하고자 하는 element마다 observe() 메소드를 호출하여 element 관찰을 시작합니다. 또한, unmount 되었을 때 disconnect() 메소드를 호출하여 모든 element의 관찰을 중지합니다.
 
-```ts
+```ts 11-12, 14
 // lib/useIntersectionObserver.ts
 
 export const useIntersectionObserver = () => {
@@ -65,7 +65,7 @@ export const useIntersectionObserver = () => {
 ## 콜백 함수에서 heading 요소 저장하기
 observer는 관찰할 요소가 등록되거나 뷰(rootMargin에서 설정한 범위)의 안 또는 밖으로 스크롤될 때마다 콜백 함수를 호출합니다. 모든 heading 요소의 가시성(보이는지 보이지 않는지)을 추적하기 위해 useRef 훅에 관찰중인 heading 요소의 값들을 저장합니다.
 
-```ts
+```ts 3-5, 8, 11-17
 // lib/useIntersectionObserver.ts
 
 type HeadingElementRef = {
@@ -100,7 +100,7 @@ export const useIntersectionObserver = () => {
 각각의 heading 요소(콜백 함수의 entries 목록)는 `isIntersecting` 값을 갖습니다. isIntersecting은 관찰 영영과 관찰 대상이 교차 상태로 들어가거나(true) 교차 상태에서 나가는지(false) 여부를 나타내는 값(boolean)입니다.
 
 교차 상태로 들어온 heading 요소는 1개 이상일 수도 있으므로 교차 상태로 들어온 모든 heading 요소에 대한 목록을 알아야 합니다.
-```ts
+```ts 18-21
 // lib/useIntersectionObserver.ts
 
 type HeadingElementRef = {
@@ -137,7 +137,7 @@ export const useIntersectionObserver = () => {
 
 마지막으로 관찰 영역에 들어온 heading 요소가 있을 경우 요소 중 가장 아래에 존재하는 heading을 선택하고 setActiveId 함수로 전달합니다.
 
-```ts
+```ts 11, 27-31
 // 전체 코드
 // lib/useIntersectionObserver.ts
 
@@ -164,8 +164,6 @@ export const useIntersectionObserver = (
         (heading) => heading.isIntersecting
       );
 
-      console.log(visibleHeadings);
-
       visibleHeadings.length > 0 &&
         setActiveId(
           visibleHeadings[visibleHeadings.length - 1].target.textContent
@@ -187,7 +185,7 @@ export const useIntersectionObserver = (
 ## 활성화된 TOC heading 하이라이트하기
 useState 훅을 사용하여 현재 활성화된 heading을 저장할 activeId 상태를 생성합니다. 그런다음 activeId 값이 사용될 컴포넌트로 전달해 줍니다.
 
-```tsx
+```tsx 3, 10
 const PostDetailPage = ({ post }: PostDetailPageProps) => {
   const [headingList, setHeadingList] = useState<string[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
@@ -207,7 +205,7 @@ export default PostDetailPage;
 
 그런 다음 현재 활성화된 heading 요소에 `active` 클래스를 추가해줍니다.
 
-```tsx
+```tsx 12
 type TableOfContentsProps = {
   headingList: string[];
   activeId: string | null;
