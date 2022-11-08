@@ -158,16 +158,13 @@ const Article = styled.article`
   margin-top: 1.5rem;
 
   .codeStyle {
-    pre code {
-      font-size: 1rem;
-      font-weight: 500;
+    font-size: 1rem;
+    font-weight: 500;
+    overflow: scroll;
 
-      span[data='highlight'] {
-        display: block;
-        margin: 0 -1.125rem;
-        padding: 0 1.125rem;
-        background-color: ${({ theme }) => theme.code_highlight};
-      }
+    code {
+      min-width: 100%;
+      float: left;
     }
 
     h2 {
@@ -195,6 +192,13 @@ const Article = styled.article`
       a {
         text-decoration: none;
       }
+    }
+
+    span[data='highlight'] {
+      display: block;
+      margin: 0 -1rem;
+      padding: 0 1rem;
+      background-color: ${({ theme }) => theme.code_highlight};
     }
   }
 `;
