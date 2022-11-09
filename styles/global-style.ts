@@ -64,22 +64,22 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   ul {
-    margin-top: 0.5rem;
+    margin: 1rem 0 1.25rem 0;
 
     li {
-      margin-left: 1.2rem;
-      margin-bottom: 0.5rem;
+      margin: 0.5rem 0 0.5rem 1.2rem;
       padding-left: 0.5rem;
+      line-height: 28px;
     }
   }
 
   ol {
-    margin-top: 0.5rem;
+    margin: 1rem 0 1.25rem 0;
 
     li {
-      margin-left: 1.2rem;
-      margin-bottom: 0.5rem;
+      margin: 0.5rem 0 0.5rem 1.2rem;
       padding-left: 0.5rem;
+      line-height: 28px;
     }
   }
 

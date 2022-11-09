@@ -158,13 +158,11 @@ const Article = styled.article`
   margin-top: 1.5rem;
 
   .codeStyle {
-    font-size: 1rem;
-    font-weight: 500;
-    overflow: scroll;
-
-    code {
-      min-width: 100%;
+    pre code {
       float: left;
+      min-width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
     }
 
     h2 {
