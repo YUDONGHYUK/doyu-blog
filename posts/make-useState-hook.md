@@ -112,9 +112,7 @@ function Counter() {
 위와 같이 코드를 작성하면 count 초기값은 정상적으로 렌더링 되지만 Increment 버튼을 클릭했을 때 count 값이 증가하지 않습니다.
 
 __💁 왜 count 값이 변경되지 않는 것일까?__  
-버튼이 클릭되면 setState에 의해 render 함수가 호출되고 Counter 컴포넌트가 실행되기 때문에 count 값은 계속 초기값 1로 할당되기 때문에 값이 증가되지 않습니다.
-
-이러한 문제는 모듈 패턴에 클로저를 사용하여 문제를 해결할 수 있습니다.
+버튼이 클릭되면 setState에 의해 render 함수가 호출되고 Counter 컴포넌트가 실행되기 때문에 count 값은 계속 초기값 1로 할당되기 때문에 값이 증가되지 않습니다. 이러한 문제는 `모듈 패턴에 클로저를 사용`하여 문제를 해결할 수 있습니다.
 
 ## 모듈 패턴에 클로저 사용하기
 
@@ -164,3 +162,117 @@ render();
 - 즉, count 값이 초기화 되지 않고 setState 함수를 통해 설정된 값을 받게 됩니다.
 
 Increment 버튼을 클릭하면 count가 1씩 증가하는 것을 볼 수 있습니다.
+
+## useState 여러번 사용해보기
+React로 개발을 하다보면 useState를 한번만 사용하지 않고 여러번 사용해야 할 때가 많습니다. 이렇 때도 정상적으로 작동하는지 확인해보겠습니다.
+
+```javascript 20, 23, 28, 30
+const MyReact = (function () {
+  let _state;
+
+  function useState(initValue) {
+    const state = _state || initValue;
+
+    const setState = (newValue) => {
+      _state = newValue;
+      render();
+    };
+
+    return [state, setState];
+  }
+
+  return { useState };
+})();
+
+function Counter() {
+  const [count, setCount] = MyReact.useState(1);
+  const [name, setName] = MyReact.useState('Doyu');
+
+  window.increment = () => setCount(count + 1);
+  window.changeName = () => setName('Aron');
+
+  return `
+  <div>
+    <p>Count: ${count}</p>
+    <p>Name: ${name}</p>
+    <button onclick='increment()'>Increment</button>
+    <button onclick='changeName()'>Change</button>
+  </div>
+  `;
+}
+
+function render() {
+  const app = document.querySelector('#app');
+  app.innerHTML = Counter();
+}
+
+render();
+```
+예제 코드는 Counter 컴포넌트가 처음 렌더링 되었을 때 count와 name의 초기값을 브라우저에 정상적으로 보여줍니다. 하지만 Increment 또는 Change 버튼을 클릭하면 count와 name이 똑같은 값을 보여주게 됩니다.
+
+__💁 왜 이러한 문제가 발생하는 것일까?__  
+하나의 state 변수로 여러개의 state를 관리하기 때문입니다. 이러한 문제를 해결하기 위해서는 `state 변수를 배열로 관리`해주면 됩니다.
+
+## state 배열로 관리하기
+```javascript 2-3, 6, 8-10, 12, 14, 18, 23-28, 30, 50
+const MyReact = (function () {
+  let _states = [];
+  let indexOfState = 0;
+
+  function useState(initValue) {
+    const index = indexOfState;
+
+    if (_states.length === index) {
+      _states.push(initValue);
+    }
+
+    const state = _states[index];
+    const setState = (newValue) => {
+      _states[index] = newValue;
+      render();
+    };
+
+    indexOfState++;
+
+    return [state, setState];
+  }
+
+  function render() {
+    const app = document.querySelector('#app');
+    app.innerHTML = Counter();
+
+    indexOfState = 0;
+  }
+
+  return { useState, render };
+})();
+
+function Counter() {
+  const [count, setCount] = MyReact.useState(1);
+  const [name, setName] = MyReact.useState('Doyu');
+
+  window.increment = () => setCount(count + 1);
+  window.changeName = () => setName('Aron');
+
+  return `
+  <div>
+    <p>Count: ${count}</p>
+    <p>Name: ${name}</p>
+    <button onclick='increment()'>Increment</button>
+    <button onclick='changeName()'>Change</button>
+  </div>
+  `;
+}
+
+MyReact.render();
+```
+- useState가 호출되면 state의 index를 설정하고 해당 index에 값이 없으면 push 메소드를 사용하여 초기값을 설정합니다.
+- useState가 호출된 횟수만큼 state가 만들어지기 때문에 useState가 호출될 때마다 indexOfState의 값을 1씩 증가시킨다.
+- setState가 호출되면 클로저를 통해 state가 만들어졌을 때 설정된 index에 접근하여 새로운 값을 할당합니다.
+- render가 호출되면 useState가 호출된 횟수만큼 indexOfState가 증가되기 때문에 다시 0부터 접근할 수 있도록 값을 초기화 시킨다.
+
+Increment 버튼을 클리하면 count 값만 1씩 증가하고 Change 버튼을 클릭하면 name의 값이 "Aron"으로 변경되는 것을 볼 수 있습니다.
+
+## 참고
+>[자바스크립트 클로저로 Hooks구현하기](https://medium.com/humanscape-tech/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%ED%81%B4%EB%A1%9C%EC%A0%80%EB%A1%9C-hooks%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0-3ba74e11fda7)  
+>[useState의 동작 원리와 클로저](https://seokzin.tistory.com/entry/React-useState%EC%9D%98-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC%EC%99%80-%ED%81%B4%EB%A1%9C%EC%A0%80)
