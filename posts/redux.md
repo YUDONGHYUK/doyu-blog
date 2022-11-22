@@ -119,7 +119,7 @@ function restockApple(qty) {
   };
 }
 
-initialState = {
+const initialState = {
   numOfApple: 10,
 };
 
@@ -166,7 +166,7 @@ function restockApple(qty) {
   };
 }
 
-initialState = {
+const initialState = {
   numOfApple: 10,
 };
 
@@ -218,8 +218,6 @@ Update state: { numOfApple: 4 }
 Update state: { numOfApple: 10 }
 ```
 subscribe 메소드에 리스너(콜백함수)를 전달했기 때문에 store가 업데이트될 때마다 상태가 콘솔에 표시됩니다. unsubscribe를 호출한 후에는 업데이트된 상태가 콘솔에 표시되지 않습니다.
-
-## combineReducer 
 
 ## 참고
 >[벨로퍼트와 함께하는 모던 리액트](https://react.vlpt.us/redux/)  
