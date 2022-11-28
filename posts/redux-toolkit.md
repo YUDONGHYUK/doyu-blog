@@ -142,6 +142,140 @@ Updated State: { apple: { numOfApples: 7 } }
 Updated State: { apple: { numOfApples: 10 } }
 ```
 
+## bananaSlice 생성하기
+지금까지 apple을 판매하기 위해 appleSlice를 만들고 store에 등록했습니다. banana도 apple과 동일하게 bananSlice를 생성하고 store에 등록하겠습니다.
+```javascript
+// app/features/banana/bananaSlice.js
+
+const createSlice = require('@reduxjs/toolkit').createSlice;
+
+const initialState = {
+  numOfbananas: 20,
+};
+
+const bananaSlice = createSlice({
+  name: 'banana',
+  initialState,
+  reducers: {
+    ordered: (state, action) => {
+      state.numOfbananas -= action.payload;
+    },
+    restocked: (state, action) => {
+      state.numOfbananas += action.payload;
+    },
+  },
+});
+
+module.exports = bananaSlice.reducer;
+module.exports.bananaActions = bananaSlice.actions;
+
+```
+```javascript 5, 10
+// app/store.js
+
+const configureStore = require('@reduxjs/toolkit').configureStore;
+const appleReducer = require('./features/apple/appleSlice');
+const bananaReducer = require('./features/banana/bananaSlice');
+
+const store = configureStore({
+  reducer: {
+    apple: appleReducer,
+    banana: bananaReducer,
+  },
+});
+
+module.exports = store;
+```
+```javascript 7-8, 19-21
+// index.js
+
+const store = require('./app/store');
+console.log('Initial State: ', store.getState());
+
+const appleActions = require('./app/features/apple/appleSlice').appleActions;
+const bananaActions =
+  require('./app/features/banana/bananaSlice').bananaActions;
+
+const unsubscribe = store.subscribe(() => {
+  console.log('Updated State: ', store.getState());
+});
+
+store.dispatch(appleActions.ordered(1));
+store.dispatch(appleActions.ordered(1));
+store.dispatch(appleActions.ordered(1));
+store.dispatch(appleActions.restocked(3));
+
+store.dispatch(bananaActions.ordered(1));
+store.dispatch(bananaActions.ordered(1));
+store.dispatch(bananaActions.restocked(2));
+
+unsubscribe();
+
+```
+```text
+Initial State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 9 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 8 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 7 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 19 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 18 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 20 } }
+```
+
+## extraReducers
+> extraReducers allows createSlice to respond to other action types besides the types it has generated. - 공식문서 -
+
+공식문서에 따르면 [extraReducers](https://redux-toolkit.js.org/api/createslice#extrareducers)는 createSlice가 생성한 타입 외에 다른 action 타입에 응답할 수 있도록 만들어 준다고 설명되어 있습니다. 또한, extraReducer는 이름에서 알 수 있듯이 createSlice에 의해 생성된 reducer를 제외한 추가 reducer입니다.
+
+extraReducers를 이해하기 위해 apple을 구매하면 banana를 1개 무료로 제공하는 예시를 작성해 보겠습니다.
+
+### bananaSlice에 extraReducers 추가
+```javascript 20-24
+// app/features/banana/bananaSlice.js
+
+const createSlice = require('@reduxjs/toolkit').createSlice;
+
+const initialState = {
+  numOfbananas: 20,
+};
+
+const bananaSlice = createSlice({
+  name: 'banana',
+  initialState,
+  reducers: {
+    ordered: (state, action) => {
+      state.numOfbananas -= action.payload;
+    },
+    restocked: (state, action) => {
+      state.numOfbananas += action.payload;
+    },
+  },
+  extraReducers: {
+    ['apple/ordered']: (state) => {
+      state.numOfbananas--;
+    },
+  },
+});
+
+module.exports = bananaSlice.reducer;
+module.exports.bananaActions = bananaSlice.actions;
+```
+apple을 구매하기 위해 appleSlice에서 생성한 `'apple/ordered'` action을 extraReducers 객체의 key로 지정하고 값으로는 reducer 함수를 지정한다.
+
+### 출력
+```text
+Initial State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 9 }, banana: { numOfbananas: 19 } }
+Updated State: { apple: { numOfApples: 8 }, banana: { numOfbananas: 18 } }
+Updated State: { apple: { numOfApples: 7 }, banana: { numOfbananas: 17 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 17 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 16 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 15 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 17 } }
+```
+출력을 확인해 보면 apple을 구매할 때마다 banana의 개수도 1개씩 줄어드는 것을 확인할 수 있습니다. 또한, banana를 구매하면 사과의 개수는 그대로이고 banana만 줄어드는 것을 볼 수 있습니다.
+
 ## 참고
 >[Codevolution](https://www.youtube.com/c/Codevolution)  
 [Redux Toolkit 공식문서](https://redux-toolkit.js.org/tutorials/quick-start)
