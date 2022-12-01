@@ -261,7 +261,7 @@ const bananaSlice = createSlice({
 module.exports = bananaSlice.reducer;
 module.exports.bananaActions = bananaSlice.actions;
 ```
-apple을 구매하기 위해 appleSlice에서 생성한 `'apple/ordered'` action을 extraReducers 객체의 key로 지정하고 값으로는 reducer 함수를 지정한다.
+apple을 구매하기 위해 appleSlice에서 생성한 `'apple/ordered'` action을 extraReducers 객체의 key로 지정하고 값으로는 reducer 함수를 지정합니다.
 
 ### 출력
 ```text
@@ -275,6 +275,58 @@ Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 15 } }
 Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 17 } }
 ```
 출력을 확인해 보면 apple을 구매할 때마다 banana의 개수도 1개씩 줄어드는 것을 확인할 수 있습니다. 또한, banana를 구매하면 사과의 개수는 그대로이고 banana만 줄어드는 것을 볼 수 있습니다.
+
+### builder 콜백 함수 표기법을 사용한 extraReducers
+extraReducers를 지정하는 또 다른 방법은 builder 콜백 함수를 사용하는 것입니다. 공식문서에서는 이 방법을 사용하는 것을 권장하고 있으며 코드를 통해 살펴보겠습니다.
+
+```javascript 4, 21-25
+// app/features/banana/bananaSlice.js
+
+const createSlice = require('@reduxjs/toolkit').createSlice;
+const appleActions = require('../apple/appleSlice').appleActions;
+
+const initialState = {
+  numOfbananas: 20,
+};
+
+const bananaSlice = createSlice({
+  name: 'banana',
+  initialState,
+  reducers: {
+    ordered: (state, action) => {
+      state.numOfbananas -= action.payload;
+    },
+    restocked: (state, action) => {
+      state.numOfbananas += action.payload;
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(appleActions.ordered, (state) => {
+      state.numOfbananas--;
+    });
+  },
+});
+
+module.exports = bananaSlice.reducer;
+module.exports.bananaActions = bananaSlice.actions;
+```
+extraReducers는 함수이고 매개변수로 builder를 갖습니다.
+- 함수 바디에서 builder의 addCase 메소드를 사용하여 새로운 케이스를 추가합니다.
+- addCase 함수의 첫 번째 인자는 action 타입이며 여기서는 appleActions의 ordered 입니다.
+- addCase 함수의 두 번째 인자는 reducer 함수입니다.
+
+### 출력
+```text
+Initial State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 20 } }
+Updated State: { apple: { numOfApples: 9 }, banana: { numOfbananas: 19 } }
+Updated State: { apple: { numOfApples: 8 }, banana: { numOfbananas: 18 } }
+Updated State: { apple: { numOfApples: 7 }, banana: { numOfbananas: 17 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 17 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 16 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 15 } }
+Updated State: { apple: { numOfApples: 10 }, banana: { numOfbananas: 17 } }
+```
+위와 동일한 결과가 출력되는 것을 확인할 수 있습니다.
 
 ## 참고
 >[Codevolution](https://www.youtube.com/c/Codevolution)  
