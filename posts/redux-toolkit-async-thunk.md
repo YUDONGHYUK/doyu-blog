@@ -6,7 +6,7 @@ excerpt: 'Redux Toolkit에서 제공하는 createAsyncThunk를 사용하여 비�
 ---
 [이전 포스트](https://doyu-blog.vercel.app/posts/redux-toolkit)에서는 Redux Toolkit을 사용하는 방법에 대해 알아봤습니다.
 
-이번 포스트에서는 [redux-thunk](http://localhost:3000/posts/redux-thunk) 포스트와 동일하게 API에서 유저 목록을 가져와 store에 저장하는 예시를 통해 Redux Toolkit에서 비동기 처리를 위해 제공하는 `createAsyncThunk`에 대해 알아보겠습니다.
+이번 포스트에서는 [redux-thunk](https://doyu-blog.vercel.app/posts/redux-toolkit) 포스트와 동일하게 API에서 유저 목록을 가져와 store에 저장하는 예시를 통해 Redux Toolkit에서 비동기 처리를 위해 제공하는 `createAsyncThunk`에 대해 알아보겠습니다.
 
 
 ## userSlice.js 파일 생성하기
