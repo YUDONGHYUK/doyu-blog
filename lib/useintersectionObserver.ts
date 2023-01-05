@@ -5,7 +5,7 @@ type HeadingElementRef = {
 };
 
 export const useIntersectionObserver = (
-  setActiveId: Dispatch<SetStateAction<string | null>>
+  setActiveHeading: Dispatch<SetStateAction<string | null>>
 ) => {
   const headingElementsRef = useRef<HeadingElementRef>({});
 
@@ -22,7 +22,7 @@ export const useIntersectionObserver = (
       );
 
       visibleHeadings.length > 0 &&
-        setActiveId(
+        setActiveHeading(
           visibleHeadings[visibleHeadings.length - 1].target.textContent
         );
     };

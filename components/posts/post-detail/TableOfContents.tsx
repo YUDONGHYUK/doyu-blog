@@ -4,16 +4,22 @@ import styled from 'styled-components';
 
 type TableOfContentsProps = {
   headingList: string[];
-  activeId: string | null;
+  activeHeading: string | null;
 };
 
-const TableOfContents = ({ headingList, activeId }: TableOfContentsProps) => {
+const TableOfContents = ({
+  headingList,
+  activeHeading,
+}: TableOfContentsProps) => {
   return (
     <Aside>
       <HeadingList>
         {headingList.map((heading) => {
           return (
-            <li key={heading} className={heading === activeId ? 'active' : ''}>
+            <li
+              key={heading}
+              className={heading === activeHeading ? 'active' : ''}
+            >
               <a
                 href={`#${generateSlug(heading)}`}
                 onClick={(e) => {

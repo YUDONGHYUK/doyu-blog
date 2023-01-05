@@ -14,14 +14,17 @@ type PostDetailPageProps = {
 
 const PostDetailPage = ({ post }: PostDetailPageProps) => {
   const [headingList, setHeadingList] = useState<string[]>([]);
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const [activeHeading, setActiveHeading] = useState<string | null>(null);
 
-  useIntersectionObserver(setActiveId);
+  useIntersectionObserver(setActiveHeading);
 
   return (
     <>
       <PostContent post={post} setHeadingList={setHeadingList} />
-      <TableOfContents headingList={headingList} activeId={activeId} />
+      <TableOfContents
+        headingList={headingList}
+        activeHeading={activeHeading}
+      />
     </>
   );
 };
