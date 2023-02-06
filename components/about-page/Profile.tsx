@@ -1,17 +1,16 @@
 import Image from 'next/image';
 import TypeIt from 'typeit-react';
-import styled from 'styled-components';
 import MyInfo from './MyInfo';
+import styled from 'styled-components';
 
 type InfoData = {
-  kind: 'phone' | 'email' | 'github' | 'notion';
+  kind: 'email' | 'github' | 'notion' | 'portfolio';
   text: string;
   isLink: boolean;
   address?: string;
 }[];
 
 const INFO_DATA: InfoData = [
-  // { kind: 'phone', text: '010-7134-2844', isLink: false },
   { kind: 'email', text: 'ydh0905@nate.com', isLink: false },
   {
     kind: 'github',
@@ -24,6 +23,13 @@ const INFO_DATA: InfoData = [
     text: 'Notion',
     isLink: true,
     address: 'https://www.notion.so/Doyu-01b5304c18ec49969140fe4021c768f1',
+  },
+  {
+    kind: 'portfolio',
+    text: 'Portfolio',
+    isLink: true,
+    address:
+      'https://doyu.notion.site/Portfolio-6f822f1372ad46e892225a7e46228dd7',
   },
 ];
 

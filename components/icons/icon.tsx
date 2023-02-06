@@ -2,13 +2,13 @@ import Link from 'next/link';
 
 import EmailIcon from './email';
 import GithubIcon from './github';
-import MoonIcon from './moon';
 import NotionIcon from './notion';
-import PhoneIcon from './phone';
+import PortfolioIcon from './portfolio';
+import MoonIcon from './moon';
 import SunIcon from './sun';
 
 type IconProps = {
-  kind: 'phone' | 'email' | 'github' | 'notion' | 'moon' | 'sun';
+  kind: 'email' | 'github' | 'notion' | 'portfolio' | 'moon' | 'sun';
   href?: string;
   size: number;
 };
@@ -16,14 +16,14 @@ type IconProps = {
 const Icon = ({ kind, href, size }: IconProps) => {
   function matchedIcon(kind: string) {
     switch (kind) {
-      case 'phone':
-        return <PhoneIcon size={size} />;
       case 'email':
         return <EmailIcon size={size} />;
       case 'github':
         return <GithubIcon size={size} />;
       case 'notion':
         return <NotionIcon size={size} />;
+      case 'portfolio':
+        return <PortfolioIcon size={size} />;
       case 'moon':
         return <MoonIcon size={size} />;
       case 'sun':

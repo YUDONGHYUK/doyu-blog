@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import Link from 'next/link';
 
 type MyInfoProps = {
-  kind: 'phone' | 'email' | 'github' | 'notion';
+  kind: 'email' | 'github' | 'notion' | 'portfolio';
   text: string;
   isLink?: boolean;
   address?: string;
