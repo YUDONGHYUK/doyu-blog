@@ -7,24 +7,22 @@ import TableOfContents from '../../components/posts/post-detail/TableOfContents'
 import { Post } from '../../types/index';
 import { getPostData, getPostFiles } from '../../lib/postsUtil';
 import { useIntersectionObserver } from '../../lib/useintersectionObserver';
+import useTOC from '../../hooks/ussTOC';
 
 type PostDetailPageProps = {
   post: Post;
 };
 
 const PostDetailPage = ({ post }: PostDetailPageProps) => {
-  const [headingList, setHeadingList] = useState<string[]>([]);
+  const { tocList } = useTOC();
   const [activeHeading, setActiveHeading] = useState<string | null>(null);
 
   useIntersectionObserver(setActiveHeading);
 
   return (
     <>
-      <PostContent post={post} setHeadingList={setHeadingList} />
-      <TableOfContents
-        headingList={headingList}
-        activeHeading={activeHeading}
-      />
+      <PostContent post={post} />
+      <TableOfContents tocList={tocList} activeHeading={activeHeading} />
     </>
   );
 };

@@ -3,36 +3,28 @@ import { generateSlug } from '../../../lib/generateSlug';
 import styled from 'styled-components';
 
 type TableOfContentsProps = {
-  headingList: string[];
+  tocList: string[];
   activeHeading: string | null;
 };
 
-const TableOfContents = ({
-  headingList,
-  activeHeading,
-}: TableOfContentsProps) => {
+const TableOfContents = ({ tocList, activeHeading }: TableOfContentsProps) => {
   return (
     <Aside>
       <HeadingList>
-        {headingList.map((heading) => {
-          return (
-            <li
-              key={heading}
-              className={heading === activeHeading ? 'active' : ''}
+        {tocList.map((toc) => (
+          <li key={toc} className={toc === activeHeading ? 'active' : ''}>
+            <a
+              href={`#${generateSlug(toc)}`}
+              onClick={(e) => {
+                e.preventDefault();
+                const slug = generateSlug(toc);
+                scrollToHeading(slug);
+              }}
             >
-              <a
-                href={`#${generateSlug(heading)}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  const slug = generateSlug(heading);
-                  scrollToHeading(slug);
-                }}
-              >
-                {heading}
-              </a>
-            </li>
-          );
-        })}
+              {toc}
+            </a>
+          </li>
+        ))}
       </HeadingList>
     </Aside>
   );

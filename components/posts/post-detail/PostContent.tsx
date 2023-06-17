@@ -1,4 +1,4 @@
-import { useEffect, Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
@@ -30,10 +30,10 @@ SyntaxHighlighter.registerLanguage('json', json);
 
 type PostContentProps = {
   post: Post;
-  setHeadingList: Dispatch<SetStateAction<string[]>>;
+  // setHeadingList: Dispatch<SetStateAction<string[]>>;
 };
 
-const PostContent = ({ post, setHeadingList }: PostContentProps) => {
+const PostContent = ({ post }: PostContentProps) => {
   const syntaxTheme = dracula;
 
   const MarkdownComponents: object = {
@@ -123,17 +123,6 @@ const PostContent = ({ post, setHeadingList }: PostContentProps) => {
   };
 
   const imagePath = `/images/posts/${post.slug}/${post.frontMatter.image}`;
-
-  useEffect(() => {
-    const headings = [];
-    const h2 = document.querySelectorAll('h2');
-
-    for (let i = 0; i < h2.length; i++) {
-      headings.push(h2[i].innerText);
-    }
-
-    setHeadingList(headings);
-  }, []);
 
   return (
     <Article>
