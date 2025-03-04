@@ -13,9 +13,7 @@ const MainNavigation = () => {
     <Header>
       <Container>
         <Link href="/">
-          <a>
-            <Logo />
-          </a>
+          <Logo />
         </Link>
         <Nav>
           <List>
