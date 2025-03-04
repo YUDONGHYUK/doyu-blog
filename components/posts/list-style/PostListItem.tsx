@@ -17,9 +17,7 @@ const PostListItem = ({ post }: PostListItemProps) => {
   return (
     <Item>
       <Title>
-        <Link href={linkPath}>
-          <a>{title}</a>
-        </Link>
+        <Link href={linkPath}>{title}</Link>
       </Title>
       <Excerpt>{excerpt}</Excerpt>
       <Date>{date}</Date>

@@ -40,8 +40,8 @@ const Icon = ({ kind, href, size }: IconProps) => {
   }
 
   return (
-    <Link href={href}>
-      <a style={{ width: size, height: size }}>{icon}</a>
+    <Link href={href} style={{ width: size, height: size }}>
+      {icon}
     </Link>
   );
 };

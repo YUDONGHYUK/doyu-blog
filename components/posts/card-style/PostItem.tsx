@@ -25,24 +25,22 @@ const PostItem = ({ post }: PostItemProps) => {
   return (
     <Item>
       <Link href={linkPath}>
-        <a>
-          <ImageWrapper>
-            <Image
-              src={imagePath}
-              placeholder="blur"
-              blurDataURL={imagePath}
-              alt={title}
-              width={300}
-              height={200}
-              layout="responsive"
-            />
-          </ImageWrapper>
-          <ContentWrapper>
-            <Title>{title}</Title>
-            <Time>{formattedDate}</Time>
-            <Paragraph>{excerpt}</Paragraph>
-          </ContentWrapper>
-        </a>
+        <ImageWrapper>
+          <Image
+            src={imagePath}
+            placeholder="blur"
+            blurDataURL={imagePath}
+            alt={title}
+            width={300}
+            height={200}
+            layout="responsive"
+          />
+        </ImageWrapper>
+        <ContentWrapper>
+          <Title>{title}</Title>
+          <Time>{formattedDate}</Time>
+          <Paragraph>{excerpt}</Paragraph>
+        </ContentWrapper>
       </Link>
     </Item>
   );
