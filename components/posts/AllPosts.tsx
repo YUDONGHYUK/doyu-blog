@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ComponentProps, useState } from 'react';
 // import PostsGrid from './PostsGrid';
 import PostsList from './list-style/PostsList';
 import { Post } from '../../types';
@@ -89,7 +89,7 @@ const InputWrapper = styled.div`
   }
 `;
 
-const Input = styled.input`
+const Input = styled.input<ComponentProps<'input'>>`
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;

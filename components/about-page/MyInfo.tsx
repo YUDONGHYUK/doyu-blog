@@ -1,5 +1,5 @@
 import Icon from '../icons/icon';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Link from 'next/link';
 
 type MyInfoProps = {
@@ -9,14 +9,14 @@ type MyInfoProps = {
   address?: string;
 };
 
-const MyInfo = ({ kind, text, isLink, address }: MyInfoProps) => {
+const MyInfo = ({ kind, text, isLink = false, address }: MyInfoProps) => {
   if (isLink && address) {
     return (
       <Link href={address} passHref>
-        <Info isLink={isLink}>
+        <InfoLink>
           <Icon kind={kind} size={24} />
           <Text>{text}</Text>
-        </Info>
+        </InfoLink>
       </Link>
     );
   }
@@ -31,7 +31,7 @@ const MyInfo = ({ kind, text, isLink, address }: MyInfoProps) => {
 
 export default MyInfo;
 
-const Info = styled.li<{ isLink?: boolean }>`
+const Info = styled.li`
   display: flex;
   align-items: center;
   margin: 0;
@@ -43,19 +43,17 @@ const Info = styled.li<{ isLink?: boolean }>`
   svg {
     fill: ${({ theme }) => theme.text2};
   }
+`;
 
-  ${({ isLink }) =>
-    isLink &&
-    css`
-      cursor: pointer;
-      :hover {
-        color: ${({ theme }) => theme.blue1};
+const InfoLink = styled(Info)`
+  cursor: pointer;
+  :hover {
+    color: ${({ theme }) => theme.blue1};
 
-        svg {
-          fill: ${({ theme }) => theme.blue1};
-        }
-      }
-    `}
+    svg {
+      fill: ${({ theme }) => theme.blue1};
+    }
+  }
 `;
 
 const Text = styled.span`

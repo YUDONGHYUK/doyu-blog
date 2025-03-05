@@ -1,6 +1,7 @@
 import Profile from '../components/about-page/Profile';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { ComponentProps } from 'react';
 
 const AboutPage = () => {
   const router = useRouter();
@@ -41,7 +42,7 @@ const ResumeBox = styled.div`
   margin-top: 2rem;
 `;
 
-const Button = styled.button`
+const Button = styled.button<ComponentProps<'button'>>`
   border: 1px solid ${({ theme }) => theme.border};
   border-radius: 0.5rem;
   padding: 1rem 2rem;

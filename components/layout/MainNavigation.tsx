@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { ComponentProps, useContext } from 'react';
 import { ThemeContext } from '../../pages/_app';
 import Link from 'next/link';
 import Logo from './Logo';
@@ -95,7 +95,7 @@ const ListItem = styled.li`
   }
 `;
 
-const DarkModeBtn = styled.button`
+const DarkModeBtn = styled.button<ComponentProps<'button'>>`
   display: flex;
   align-items: center;
 
