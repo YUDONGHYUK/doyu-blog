@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+@theme {
+  --main-height: calc(100vh - 64px - 88px) /* 64px: header, 88px: footer */
+}
