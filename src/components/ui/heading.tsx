@@ -18,10 +18,10 @@ interface HeadProps extends React.HTMLAttributes<HTMLHeadingElement> {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
 }
 
-function Heading({ children, as = 'h1', className }: HeadProps) {
+function Heading({ children, as = 'h1', className, ...props }: HeadProps) {
   const Comp = as;
   return (
-    <Comp className={cn(headVariants({ variant: Comp, className }))}>
+    <Comp className={cn(headVariants({ variant: Comp, className }))} {...props}>
       {children}
     </Comp>
   );

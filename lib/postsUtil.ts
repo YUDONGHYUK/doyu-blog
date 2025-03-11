@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { Post } from '../types';
 
 const NUM_OF_LATEST_POSTS = 3;
 const postDirectory = path.join(process.cwd(), 'posts');
@@ -20,7 +21,7 @@ export function getPostData(fileIdentifier: string) {
 
 export function getAllPosts() {
   const postFiles = getPostFiles();
-  const allPosts = postFiles.map((postFile) => getPostData(postFile));
+  const allPosts = postFiles.map((postFile) => getPostData(postFile)) as Post[];
   const sortedPosts = allPosts.sort((postA, postB) =>
     postA.frontMatter.date > postB.frontMatter.date ? -1 : 1
   );
@@ -28,7 +29,7 @@ export function getAllPosts() {
   return sortedPosts;
 }
 
-export function getLatestPosts() {
+export function getLatestPosts(): Post[] {
   const latestPosts = getAllPosts().slice(0, NUM_OF_LATEST_POSTS);
 
   return latestPosts;
