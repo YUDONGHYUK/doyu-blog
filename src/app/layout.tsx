@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full scheme-light dark:scheme-dark">
-      <body className="max-w-5xl mx-auto flex flex-col justify-between">
+      <body className="max-w-4xl mx-auto flex flex-col justify-between px-6">
         <Header />
-        <main className="h-[var(--main-height)]">{children}</main>
+        <main className="min-h-[var(--main-height)] ">{children}</main>
         <Footer />
       </body>
     </html>
