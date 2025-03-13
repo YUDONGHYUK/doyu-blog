@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
 @theme {
+  --color-primary: #F39C12;
+  --color-accent: #F5B041;
+  --color-secondary: #2C3E50;
+  --color-background: #FFF5E6;
+  --color-text-primary: #252525;
+  --color-text-secondary: #374151;
+  --color-border: #566573;
+  
   --main-height: calc(100vh - 64px - 88px) /* 64px: header, 88px: footer */
 }
