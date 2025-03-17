@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import useTOC from '../../../hooks/ussTOC';
+import { Post } from '../../../types';
+import { useIntersectionObserver } from '../../../lib/useintersectionObserver';
+import PostContent from '../../../components/posts/post-detail/PostContent';
+import TableOfContents from '../../../components/posts/post-detail/TableOfContents';
 import { ParsedUrlQuery } from 'querystring';
-
-import PostContent from '../../components/posts/post-detail/PostContent';
-import TableOfContents from '../../components/posts/post-detail/TableOfContents';
-import { Post } from '../../types/index';
-import { getPostData, getPostFiles } from '../../lib/postsUtil';
-import { useIntersectionObserver } from '../../lib/useintersectionObserver';
-import useTOC from '../../hooks/ussTOC';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { getPostData, getPostFiles } from '../../../lib/postsUtil';
 
 type PostDetailPageProps = {
   post: Post;

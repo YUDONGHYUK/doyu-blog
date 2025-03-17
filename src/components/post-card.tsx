@@ -11,9 +11,15 @@ export default function PostCard({ post }: { post: Post }) {
   const imagePath = `/images/posts/${slug}/${image}`;
 
   return (
-    <div className="p-2 w-full max-w-[300px] border border-white hover:border hover:border-primary rounded-md overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-      <div className="relative aspect-3/2 ">
-        <Image src={imagePath} alt={title}  style={{objectFit:'cover'}} fill priority/>
+    <div className="group w-full max-w-[300px] border border-white">
+      <div className="relative aspect-3/2 overflow-hidden rounded-md group-hover:ring-2 group-hover:ring-primary">
+        <Image
+          src={imagePath}
+          alt={title}
+          style={{ objectFit: 'cover' }}
+          fill
+          priority
+        />
       </div>
       <div>
         <Heading
