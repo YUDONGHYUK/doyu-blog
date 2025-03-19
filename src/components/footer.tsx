@@ -1,4 +1,4 @@
-import Icon from '../../components/icons/icon';
+import Icon from './icons/icon';
 
 export default function Footer() {
   return (

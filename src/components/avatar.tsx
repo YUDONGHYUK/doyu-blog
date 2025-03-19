@@ -17,14 +17,21 @@ const Avatar = React.forwardRef<
     />
   );
 });
+Avatar.displayName = 'Avatar';
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof Image>,
   React.ComponentPropsWithoutRef<typeof Image>
->(({ className, ...props }, ref) => {
+>(({ className, alt, ...props }, ref) => {
   return (
-    <Image ref={ref} className={cn('aspect-square', className)} {...props} />
+    <Image
+      ref={ref}
+      alt={alt}
+      className={cn('aspect-square', className)}
+      {...props}
+    />
   );
 });
+AvatarImage.displayName = 'AvatarImage';
 
 export { Avatar, AvatarImage };

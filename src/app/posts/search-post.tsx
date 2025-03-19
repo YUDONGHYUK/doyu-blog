@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function SearchPost() {
   const router = useRouter();

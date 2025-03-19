@@ -1,4 +1,4 @@
-import Icon from '../../../components/icons/icon';
+import Icon from '../../components/icons/icon';
 import { Avatar, AvatarImage } from '../../components/avatar';
 import PageTitle from '../../components/page-title';
 import { Button } from '../../components/ui/button';
@@ -53,11 +53,7 @@ export default function AboutPage() {
         <div className="flex flex-col justify-between border-y border-accent px-10 py-16 mb-10 md:flex-row">
           <div className="flex justify-center items-center">
             <Avatar className="w-28 h-28">
-              <AvatarImage
-                src={'/images/about/profile.jpg'}
-                alt="avatar"
-                fill
-              />
+              <AvatarImage src="/images/about/profile.jpg" alt="avatar" fill />
             </Avatar>
           </div>
 

@@ -40,7 +40,7 @@ export default function PostContent({ post }: PostContentProps) {
   }
 
   interface PreNode {
-    node: Node & { [key: string]: any };
+    node: Node & { [key: string]: unknown };
     children: React.ReactElement<{ className: string }, string>[];
     position: object;
     properties: object;
@@ -51,15 +51,14 @@ export default function PostContent({ post }: PostContentProps) {
   const MarkdownComponents: object = {
     code({
       node,
-      inline,
       className,
       ...props
     }: {
       node: Node;
-      inline: boolean;
       className: string;
       [key: string]: any;
     }) {
+      console.log(props);
       const match = /language-(\w+)/.exec(className || '');
       const hasMeta = node?.data?.meta;
 
@@ -155,7 +154,7 @@ export default function PostContent({ post }: PostContentProps) {
       children: React.ReactNode;
       node: Node;
     }) => {
-      const { ordered, depth, ...props } = ul;
+      const { ...props } = ul;
       return (
         <ul
           className="px-4 mb-6 list-disc list-inside space-y-2 marker:text-gray-accent"
@@ -169,7 +168,6 @@ export default function PostContent({ post }: PostContentProps) {
     <div>
       <ReactMarkdown
         components={MarkdownComponents}
-        // className="codeStyle"
         rehypePlugins={[[rehypeRaw, { passThrough: ['element'] }]]}
       >
         {post.content}

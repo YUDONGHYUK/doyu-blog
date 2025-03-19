@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
-import EmailIcon from './email';
-import GithubIcon from './github';
-import NotionIcon from './notion';
-import PortfolioIcon from './portfolio';
-import MoonIcon from './moon';
-import SunIcon from './sun';
+import EmailIcon from './email-icon';
+import GithubIcon from './github-icon';
+import NotionIcon from './notion-icon';
+import PortfolioIcon from './portfolio-icon';
+import MoonIcon from './moon-icon';
+import SunIcon from './sun-icon';
 
 type IconProps = {
   kind: 'email' | 'github' | 'notion' | 'portfolio' | 'moon' | 'sun';

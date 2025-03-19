@@ -1,7 +1,7 @@
 import { getPostData } from '../../../../lib/postsUtil';
 import type { Post } from '../../../../types';
+import ClockIcon from '../../../components/icons/clock-icon';
 import { Heading } from '../../../components/ui/heading';
-import ClockIcon from '../../../components/ui/icon/clock-icon';
 import PostContent from './post-content';
 
 export default async function PostDetailPage({

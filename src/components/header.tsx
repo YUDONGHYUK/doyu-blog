@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Icon from '../../components/icons/icon';
 import { Heading } from './ui/heading';
 
 const LINKS = [
@@ -20,9 +19,6 @@ export default function Header() {
               <Link href={link.path}>{link.label}</Link>
             </li>
           ))}
-          {/* <button>
-            <Icon kind="sun" size={22} />
-          </button> */}
         </ul>
       </nav>
     </header>
