@@ -10,10 +10,10 @@ import SunIcon from './sun';
 type IconProps = {
   kind: 'email' | 'github' | 'notion' | 'portfolio' | 'moon' | 'sun';
   href?: string;
-  size: number;
+  size?: number;
 };
 
-const Icon = ({ kind, href, size }: IconProps) => {
+const Icon = ({ kind, href, size = 24 }: IconProps) => {
   function matchedIcon(kind: string) {
     switch (kind) {
       case 'email':

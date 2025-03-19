@@ -46,7 +46,7 @@ const Profile = () => {
                 instance
                   .type('안녕하세요.')
                   .pause(500)
-                  .type(`<br>프론트엔드 개발자 <strong >유동혁</strong>입니다.`)
+                  .type(`<br>프론트엔드 개발자 < pstrong >유동혁</>입니다.`)
                   .pause(750);
 
                 return instance;
