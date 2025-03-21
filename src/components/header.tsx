@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="w-full flex justify-between items-center h-16">
       <Link href={'/'}>
-        <Heading as="h3">Doyu&apos;s Blog</Heading>
+        <Heading as="h3">Doyu</Heading>
       </Link>
       <nav>
         <ul className="flex items-center gap-4">
