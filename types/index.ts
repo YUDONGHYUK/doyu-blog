@@ -3,6 +3,7 @@ export type FrontMatter = {
   date: string;
   image: string;
   excerpt: string;
+  categories: string[];
   isFeatured?: boolean;
 };
 

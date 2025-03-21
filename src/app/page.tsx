@@ -13,11 +13,11 @@ export default function HomePage() {
         <div className="w-full">
           <div className="space-y-4">
             <Heading as="h1">Donghyuk Yu</Heading>
-            <Heading as="h5">
+            <Heading as="h4">
               배움을 즐기고 두려워하지 않는 프론트엔드 개발자입니다.
             </Heading>
           </div>
-          <p className="h-4">
+          <p className="h-4 text-base md:text-lg">
             <HomeTyper />
           </p>
         </div>

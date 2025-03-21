@@ -11,7 +11,9 @@ const LINKS = [
 export default function Header() {
   return (
     <header className="w-full flex justify-between items-center h-16">
-      <Heading as="h4">Doyu&apos;s Blog</Heading>
+      <Link href={'/'}>
+        <Heading as="h3">Doyu&apos;s Blog</Heading>
+      </Link>
       <nav>
         <ul className="flex items-center gap-4">
           {LINKS.map((link) => (
