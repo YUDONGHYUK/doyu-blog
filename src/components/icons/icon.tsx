@@ -7,27 +7,27 @@ import PortfolioIcon from './portfolio-icon';
 import MoonIcon from './moon-icon';
 import SunIcon from './sun-icon';
 
-type IconProps = {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
   kind: 'email' | 'github' | 'notion' | 'portfolio' | 'moon' | 'sun';
   href?: string;
   size?: number;
-};
+}
 
-const Icon = ({ kind, href, size = 24 }: IconProps) => {
+const Icon = ({ kind, href, size = 24, ...props }: IconProps) => {
   function matchedIcon(kind: string) {
     switch (kind) {
       case 'email':
-        return <EmailIcon size={size} />;
+        return <EmailIcon size={size} {...props} />;
       case 'github':
-        return <GithubIcon size={size} />;
+        return <GithubIcon size={size} {...props} />;
       case 'notion':
-        return <NotionIcon size={size} />;
+        return <NotionIcon size={size} {...props} />;
       case 'portfolio':
-        return <PortfolioIcon size={size} />;
+        return <PortfolioIcon size={size} {...props} />;
       case 'moon':
-        return <MoonIcon size={size} />;
+        return <MoonIcon size={size} {...props} />;
       case 'sun':
-        return <SunIcon size={size} />;
+        return <SunIcon size={size} {...props} />;
       default:
         return null;
     }

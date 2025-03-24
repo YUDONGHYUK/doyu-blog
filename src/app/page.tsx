@@ -3,6 +3,7 @@ import { getLatestPosts } from '../../lib/postsUtil';
 import { Heading } from '../components/ui/heading';
 import PostCard from '../components/post-card';
 import HomeTyper from './home-typer';
+import PostItem from './posts/post-item';
 
 export default function HomePage() {
   const posts = getLatestPosts();
@@ -29,7 +30,7 @@ export default function HomePage() {
         </div>
         <ul className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-10">
           {posts.map((post) => (
-            <PostCard post={post} key={post.slug} />
+            <PostItem key={post.slug} post={post} />
           ))}
         </ul>
       </section>

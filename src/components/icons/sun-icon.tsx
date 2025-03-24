@@ -1,10 +1,15 @@
-export default function SunIcon({ size }: { size: number }) {
+interface SunIconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number;
+}
+
+export default function SunIcon({ size = 24, ...props }: SunIconProps) {
   return (
     <svg
       height={size}
       width={size}
       viewBox="0 0 256 256"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <rect fill="none" height="256" width="256" />
       <circle cx="128" cy="128" r="68" />

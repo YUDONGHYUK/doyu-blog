@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Heading } from './ui/heading';
+import ThemeSwitch from './theme-switch';
 
 const LINKS = [
   { label: 'Posts', path: '/posts' },
@@ -21,6 +22,7 @@ export default function Header() {
               <Link href={link.path}>{link.label}</Link>
             </li>
           ))}
+          <ThemeSwitch />
         </ul>
       </nav>
     </header>

@@ -1,24 +1,39 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-primary: #1164ff;
-  --color-secondary: #00fbff;
-  --color-text: #16171b;
-  --color-gray: #9f9eac;
-  --color-gray-accent: #717380;
-  --color-accent: #babcc9;
-  --color-accent-lighter: #e4e7ed;
-  --color-input: #e7e6eb;
-  --color-bg: #edf1f5;
-
-  --main-height: calc(100vh - 64px - 88px) /* 64px: header, 88px: footer */
-}
 
 :root {
-  background: var(--color-bg);
-  color: var(--color-text);
+  --primary: #1164ff;
+  --secondary: #00fbff;
+  --text: #16171b;
+  --gray: #9f93ac;
+  --gray-accent: #717380;
+  --accent: #babcc9;
+  --accent-lighter: #e4e7ed;
+  --input: #e7e6eb;
+  --background: #edf1f5;
 }
 
-/* @utility border-main {
-  @apply border-green-500
-} */
+.dark {
+  --primary: #00fbff;
+  --secondary: #1164ff;
+  --text: #e4e7ed;
+  --gray: #6b6b80;
+  --gray-accent: #adb0c3;
+  --accent: #494754;
+  --accent-lighter: #16171b;
+  --input: #0f0f12;
+  --background: #1f2028;
+}
+
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-text: var(--text);
+  --color-gray: var(--gary);
+  --color-gray-accent: var(--gray-accent);
+  --color-accent: var(--accent);
+  --color-accent-lighter: var(--accent-lighter);
+  --color-input: var(--input);
+  --color-bg: var(--background);
+}

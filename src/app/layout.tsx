@@ -1,6 +1,7 @@
 import './globals.css';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import { ThemeProvider } from '../providers/theme-provider';
 
 export const metadata = {
   title: 'Next.js',
@@ -13,11 +14,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full scheme-light dark:scheme-dark">
-      <body className="max-w-4xl mx-auto flex flex-col justify-between px-6">
-        <Header />
-        <main className="min-h-[var(--main-height)] ">{children}</main>
-        <Footer />
+    <html lang="en" className="h-full" suppressHydrationWarning>
+      <body className="max-w-4xl mx-auto flex flex-col justify-between px-6 bg-bg text-text">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main className="min-h-[var(--main-height)] ">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
