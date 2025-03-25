@@ -52,13 +52,14 @@ export default function PostContent({ post }: PostContentProps) {
     code({
       node,
       className,
-      ...props
+      inline,
+      children,
     }: {
       node: Node;
       className: string;
-      [key: string]: any;
+      inline: boolean;
+      children: string | string[];
     }) {
-      console.log(props);
       const match = /language-(\w+)/.exec(className || '');
       const hasMeta = node?.data?.meta;
 
@@ -66,6 +67,7 @@ export default function PostContent({ post }: PostContentProps) {
         if (hasMeta) {
           const highlightNum = node.data.meta?.replace(/\s/g, '');
           const highlightNumArr = rangeParser(highlightNum);
+          console.log({ highlightNum, highlightNumArr });
           const data: string | null = highlightNumArr.includes(lineNumber)
             ? 'highlight'
             : null;
@@ -86,10 +88,10 @@ export default function PostContent({ post }: PostContentProps) {
           useInlineStyles={true}
           lineProps={applyHighlights}
         >
-          {props.children}
+          {children}
         </SyntaxHighlighter>
       ) : (
-        <code className={className} {...props} />
+        <code className={className} />
       );
     },
     p: (paragraph: { children?: boolean; node?: Node }) => {
@@ -154,7 +156,7 @@ export default function PostContent({ post }: PostContentProps) {
       children: React.ReactNode;
       node: Node;
     }) => {
-      const { ...props } = ul;
+      const { ordered, ...props } = ul;
       return (
         <ul
           className="px-4 mb-6 list-disc list-inside space-y-2 marker:text-gray-accent"
@@ -167,6 +169,7 @@ export default function PostContent({ post }: PostContentProps) {
   return (
     <div>
       <ReactMarkdown
+        className="[&_span[data=highlight]]:bg-code-highlight [&_span[data=highlight]]:block [&_span[data=highlight]]:mx-[-1rem] [&_span[data=highlight]]:px-[1rem]"
         components={MarkdownComponents}
         rehypePlugins={[[rehypeRaw, { passThrough: ['element'] }]]}
       >

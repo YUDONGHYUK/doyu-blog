@@ -11,6 +11,7 @@
   --accent-lighter: #e4e7ed;
   --input: #e7e6eb;
   --background: #edf1f5;
+  --code-highlight: #37394e
 }
 
 .dark {
@@ -23,6 +24,7 @@
   --accent-lighter: #16171b;
   --input: #0f0f12;
   --background: #1f2028;
+  --code-highlight: #37394e
 }
 
 
@@ -36,4 +38,5 @@
   --color-accent-lighter: var(--accent-lighter);
   --color-input: var(--input);
   --color-bg: var(--background);
+  --color-code-highlight: var(--code-highlight)
 }
