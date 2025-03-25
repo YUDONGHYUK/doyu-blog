@@ -69,7 +69,7 @@ export default function AboutPage() {
             <div className="flex justify-between mt-6 md:mt-0">
               {SOCIALS.map((s) => (
                 <Icon
-                  className="dark:fill-red"
+                  className="fill-text"
                   key={s.name}
                   kind={s.name}
                   href={s.isLink ? s.href : undefined}
