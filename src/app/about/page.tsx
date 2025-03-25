@@ -3,30 +3,28 @@ import { Avatar, AvatarImage } from '../../components/avatar';
 import PageTitle from '../../components/page-title';
 import { Button } from '../../components/ui/button';
 import AboutTyper from './about-typer';
+import Link from 'next/link';
 
 type Social = {
-  name: 'email' | 'github' | 'notion' | 'portfolio';
+  name: 'github' | 'notion' | 'portfolio';
   label: string;
-} & ({ isLink: true; href: string } | { isLink: false });
+  href: string;
+};
 
 const SOCIALS: Social[] = [
-  { name: 'email', label: 'ydh0905@nate.com', isLink: false },
   {
     name: 'github',
     label: 'YUDONGHYUK',
-    isLink: true,
     href: 'https://github.com/YUDONGHYUK',
   },
   {
     name: 'notion',
     label: 'Notion',
-    isLink: true,
     href: 'https://www.notion.so/Doyu-01b5304c18ec49969140fe4021c768f1',
   },
   {
     name: 'portfolio',
     label: 'Portfolio',
-    isLink: true,
     href: 'https://doyu.notion.site/Portfolio-6f822f1372ad46e892225a7e46228dd7',
   },
 ];
@@ -59,22 +57,25 @@ export default function AboutPage() {
 
           <div className="flex flex-col justify-between">
             <div className="flex items-center justify-center space-x-2 mt-6 md:mt-0">
-              <Button variant="outline" size="fix">
-                RESUME
-              </Button>
-              <Button variant="outline" size="fix">
-                EMAIL
-              </Button>
+              <Link
+                target="_blank"
+                href="https://www.notion.so/doyu/Doyu-0e8a5b6e225a42fab531895e4ad388ae"
+              >
+                <Button variant="outline" size="fix">
+                  RESUME
+                </Button>
+              </Link>
+              <Link href="mailto:ydh0905@naver.com">
+                <Button variant="outline" size="fix">
+                  EMAIL
+                </Button>
+              </Link>
             </div>
             <div className="flex justify-between mt-6 md:mt-0">
               {SOCIALS.map((s) => (
-                <Icon
-                  className="fill-text"
-                  key={s.name}
-                  kind={s.name}
-                  href={s.isLink ? s.href : undefined}
-                  size={40}
-                />
+                <Link key={s.name} target="_blank" href={s.href}>
+                  <Icon className="fill-text" kind={s.name} size={40} />
+                </Link>
               ))}
             </div>
           </div>
