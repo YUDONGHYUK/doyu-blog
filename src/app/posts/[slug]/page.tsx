@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getPostData } from '../../../../lib/postsUtil';
+import { getAllPosts, getPostData } from '../../../../lib/postsUtil';
 import type { Post } from '../../../../types';
 import ClockIcon from '../../../components/icons/clock-icon';
 import { Heading } from '../../../components/ui/heading';
@@ -16,6 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.frontMatter.title,
     description: post.frontMatter.excerpt,
   };
+}
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export default async function PostDetailPage({ params }: Props) {
