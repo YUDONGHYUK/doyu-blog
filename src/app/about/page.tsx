@@ -35,6 +35,7 @@ export default function AboutPage() {
       <div>
         <div className="mb-16 md:mb-24">
           <div className="my-10 text-3xl md:text-4xl">
+            <p>안녕하세요.</p>
             <AboutTyper />
           </div>
           <div className="text-lg space-y-2 md:text-2xl">
