@@ -1,14 +1,24 @@
+import { Metadata } from 'next';
 import { getPostData } from '../../../../lib/postsUtil';
 import type { Post } from '../../../../types';
 import ClockIcon from '../../../components/icons/clock-icon';
 import { Heading } from '../../../components/ui/heading';
 import PostContent from './post-content';
 
-export default async function PostDetailPage({
-  params,
-}: {
+type Props = {
   params: Promise<{ slug: string }>;
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostData(slug) as Post;
+  return {
+    title: post.frontMatter.title,
+    description: post.frontMatter.excerpt,
+  };
+}
+
+export default async function PostDetailPage({ params }: Props) {
   const { slug } = await params;
   const post = getPostData(slug) as Post;
   const {
