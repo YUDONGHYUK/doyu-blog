@@ -67,7 +67,6 @@ export default function PostContent({ post }: PostContentProps) {
         if (hasMeta) {
           const highlightNum = node.data.meta?.replace(/\s/g, '');
           const highlightNumArr = rangeParser(highlightNum);
-          console.log({ highlightNum, highlightNumArr });
           const data: string | null = highlightNumArr.includes(lineNumber)
             ? 'highlight'
             : null;
